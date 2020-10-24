@@ -49,6 +49,15 @@ public class controla1 extends HttpServlet {
         request.getRequestDispatcher(pag).forward(request, response); 
         
     }
+         
+          protected void noUsarEsteMetodo_Prueba(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+         String cod=request.getParameter("id");
+       request.setAttribute("dato", obj.lisNota(cod));
+        String pag="/pagNota.jsp";
+        request.getRequestDispatcher(pag).forward(request, response); 
+        
+    }
    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
