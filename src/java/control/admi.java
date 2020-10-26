@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import modelo2.*;import dao.*;
 
 
 public class admi extends HttpServlet {
 
-    
+    Negocio2 ng2=new Negocio2();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,7 +30,9 @@ public class admi extends HttpServlet {
     }
     protected void lisProm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String id=request.getParameter("id");
+        HttpSession ses=request.getSession();
+        request.setAttribute("dato", ng2.lisProd(id));
         String pag="/admi/mProm.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }

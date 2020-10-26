@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-" >
                         <li class="nav-item active">
-                            <a href="admi?opc=1" class="nav-link">
+                            <a href="admi?opc=1&id=T001" class="nav-link">
                                 <img src="image/Bar4.svg">Promociones</a>
                         </li>
                         <li class="nav-item" >
