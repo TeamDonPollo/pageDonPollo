@@ -4,9 +4,17 @@
         <servlet-name>controla1</servlet-name>
         <servlet-class>control.controla1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>admi</servlet-name>
+        <servlet-class>control.admi</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admi</servlet-name>
+        <url-pattern>/admi</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
