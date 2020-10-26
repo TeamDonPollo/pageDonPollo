@@ -38,21 +38,27 @@ public class admi extends HttpServlet {
     }
         protected void lisPollo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+       String id=request.getParameter("id");
+        HttpSession ses=request.getSession();
+        request.setAttribute("dato", ng2.lisProd(id));
         String pag="admi/mPollo.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
         
     }
          protected void lisGuar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+      String id=request.getParameter("id");
+        HttpSession ses=request.getSession();
+        request.setAttribute("dato", ng2.lisProd(id));
       String pag="/admi/mGuar.jsp";
       request.getRequestDispatcher(pag).forward(request, response);
       
     }   
       protected void lisSang(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          
+          String id=request.getParameter("id");
+        HttpSession ses=request.getSession();
+        request.setAttribute("dato", ng2.lisProd(id));
           String pag="/admi/mSang.jsp";
       request.getRequestDispatcher(pag).forward(request, response);
           
@@ -60,6 +66,9 @@ public class admi extends HttpServlet {
          
          protected void lisBeb(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+             String id=request.getParameter("id");
+        HttpSession ses=request.getSession();
+        request.setAttribute("dato", ng2.lisProd(id));
             String pag="/admi/mBeb.jsp";
       request.getRequestDispatcher(pag).forward(request, response);
         

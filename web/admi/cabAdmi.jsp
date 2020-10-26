@@ -42,19 +42,19 @@
                                 <img src="../image/Bar4.svg">Promociones</a>
                         </li>
                         <li class="nav-item" >
-                            <a href="../admi?opc=2" class="nav-link">
+                            <a href="../admi?opc=2&id=T002" class="nav-link">
                                 <img src="../image/Bar2.svg"> Pollo</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../admi?opc=3" class="nav-link">
+                            <a href="../admi?opc=3&id=T003" class="nav-link">
                                 <img src="../image/Bar3.svg">Guarniciones</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../admi?opc=4" class="nav-link">
+                            <a href="../admi?opc=4&id=T004" class="nav-link">
                                 <img src="../image/Bar5.svg">Sanguches polleros</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../admi?opc=5" class="nav-link">
+                            <a href="../admi?opc=5&id=T005" class="nav-link">
                                 <img src="../image/Bar1.svg">Bebidas</a>
                         </li>
                     </ul>
