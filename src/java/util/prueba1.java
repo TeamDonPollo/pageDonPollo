@@ -10,6 +10,7 @@ public class prueba1 {
         for(Producto x:lis){
             System.out.println("COD: "+x.getNom());
         }
+        
     }
     
 }

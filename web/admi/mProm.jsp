@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*,dao.*,modelo2.*,modelo.*"%>
+<%@page import="java.util.*,dao.*,modelo2.*"%>
 <!DOCTYPE html>
 <html>
     <head>

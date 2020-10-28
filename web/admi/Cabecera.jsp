@@ -20,7 +20,8 @@
                 %>
                 <li class="nav-item active">
                     <a href="ControlProductos?opc=1&code=<%=t.getCodTipo() %>" class="nav-link">
-                      <img src="image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
+                        
+                        <img src="image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
                 </li>            
                 <%
                     }

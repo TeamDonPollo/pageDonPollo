@@ -15,7 +15,6 @@ public class ControlProductos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         String op = request.getParameter("opc");
         if (op.equals("1")) {
             lisProdutos(request, response);
@@ -26,9 +25,8 @@ public class ControlProductos extends HttpServlet {
             throws ServletException, IOException {
 
         String code = request.getParameter("code");
-
         request.setAttribute("productos", obj.ListaProductos(code));
-        String pag = "/pagProducto.jsp";
+        String pag = "pProducto.jsp";
 
         request.getRequestDispatcher(pag).forward(request, response);
 
