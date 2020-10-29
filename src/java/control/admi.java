@@ -22,58 +22,10 @@ public class admi extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
           String opc=request.getParameter("opc");
-        if(opc.equals("1"))lisProm(request, response);
-        if(opc.equals("2"))lisPollo(request, response);
-        if(opc.equals("3"))lisGuar(request, response); 
-        if(opc.equals("4"))lisSang(request, response); 
-        if(opc.equals("5"))lisBeb(request, response); 
+        
         if(opc.equals("6"))lisProd(request, response); 
     }
-    protected void lisProm(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String id=request.getParameter("id");
-        HttpSession ses=request.getSession();
-        request.setAttribute("dato", ng2.lisProd(id));
-        String pag="/admi/mProm.jsp";
-        request.getRequestDispatcher(pag).forward(request, response);
-    }
-        protected void lisPollo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       String id=request.getParameter("id");
-        HttpSession ses=request.getSession();
-        request.setAttribute("dato", ng2.lisProd(id));
-        String pag="admi/mPollo.jsp";
-        request.getRequestDispatcher(pag).forward(request, response);
-        
-    }
-         protected void lisGuar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-      String id=request.getParameter("id");
-        HttpSession ses=request.getSession();
-        request.setAttribute("dato", ng2.lisProd(id));
-      String pag="/admi/mGuar.jsp";
-      request.getRequestDispatcher(pag).forward(request, response);
-      
-    }   
-      protected void lisSang(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-          String id=request.getParameter("id");
-        HttpSession ses=request.getSession();
-        request.setAttribute("dato", ng2.lisProd(id));
-          String pag="/admi/mSang.jsp";
-      request.getRequestDispatcher(pag).forward(request, response);
-          
-    }      
-         
-         protected void lisBeb(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-             String id=request.getParameter("id");
-        HttpSession ses=request.getSession();
-        request.setAttribute("dato", ng2.lisProd(id));
-            String pag="/admi/mBeb.jsp";
-      request.getRequestDispatcher(pag).forward(request, response);
-        
-    }  
+    
          
           protected void lisProd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
