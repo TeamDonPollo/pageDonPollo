@@ -28,11 +28,11 @@
             </ul>
 
             <!-- registrar-->
-            <form class="form-inline my-2 my-lg-0">
+            <!--<form class="form-inline my-2 my-lg-0">--> <!--No agregar como formulario el modal es el que redirecciona-->
                 
                     <button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
                 
-            </form>
+            <!--</form>-->
         </div>
 
     </nav>

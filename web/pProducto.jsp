@@ -2,15 +2,7 @@
 <%@page import="modelo.Producto"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>DON POLLO</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <!-- CSS BOOTSTRAP-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/estilos.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+    <%@include file="Head.jsp" %>
 
     <body>
         <%
@@ -31,19 +23,19 @@
                         <div class="card" style="width: 22rem;">
                             <img class="card-img-top" src="img/foto1.jpg" width="50" height="260">
                             <div class="card-header">
-                                <p style="font-size: 14px;"><%=p.getProducto()  %></p>
+                                <p style="font-size: 14px;"><%=p.getProducto()%></p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Precio S/. <%=p.getPrecio() %></li>
+                                <li class="list-group-item">Precio S/. <%=p.getPrecio()%></li>
                                 <li class="list-group-item">
                                     <a href="#" class="btn btn-primary">Comprar</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    
+
                     <%
-                       }
+                        }
                     %>
                 </div>
             </div>

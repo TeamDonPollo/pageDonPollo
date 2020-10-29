@@ -50,3 +50,5 @@
             <div class="fondo-text" >
                 <h5><span class="icon-sphere"></span> PolleríaDonPollo-2020 </h5>
             </div>
+            
+            <%@include file="logueo.jsp" %>%> 
