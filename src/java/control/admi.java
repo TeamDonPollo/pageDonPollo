@@ -15,7 +15,7 @@ import modelo2.*;import dao.*;
 
 
 public class admi extends HttpServlet {
-
+    TipoProductoDAO obj = new TipoProductoDAO();
     Negocio2 ng2=new Negocio2();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -27,6 +27,7 @@ public class admi extends HttpServlet {
         if(opc.equals("3"))lisGuar(request, response); 
         if(opc.equals("4"))lisSang(request, response); 
         if(opc.equals("5"))lisBeb(request, response); 
+        if(opc.equals("6"))lisProd(request, response); 
     }
     protected void lisProm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -72,7 +73,19 @@ public class admi extends HttpServlet {
             String pag="/admi/mBeb.jsp";
       request.getRequestDispatcher(pag).forward(request, response);
         
-    }   
+    }  
+         
+          protected void lisProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String code = request.getParameter("code");
+        request.setAttribute("productos", obj.ListaProductos(code));
+        //request.setAttribute("productos", ng2.lisProd(code));
+        String pag = "pProducto.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
         
     
 

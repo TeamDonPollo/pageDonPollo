@@ -19,7 +19,7 @@
                     for (TipoProducto t : lista) { 
                 %>
                 <li class="nav-item active">
-                    <a href="ControlProductos?opc=1&code=<%=t.getCodTipo() %>" class="nav-link">
+                    <a href="admi?opc=6&code=<%=t.getCodTipo() %>" class="nav-link">
                       <img src="image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
                 </li>            
                 <%
@@ -29,9 +29,9 @@
 
             <!-- registrar-->
             <form class="form-inline my-2 my-lg-0">
-                <a href="pagRegistro.jsp">
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Registrarse</button>
-                </a>
+                
+                    <button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
+                
             </form>
         </div>
 

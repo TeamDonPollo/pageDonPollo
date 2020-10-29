@@ -8,6 +8,10 @@
         <servlet-name>admi</servlet-name>
         <servlet-class>control.admi</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>admi2</servlet-name>
+        <servlet-class>control.admi2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>admi</servlet-name>
         <url-pattern>/admi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admi2</servlet-name>
+        <url-pattern>/admi2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
