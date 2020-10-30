@@ -26,7 +26,7 @@
         <tr><th>Código<td>  <input class="form-control" type="text" value="<%=p.getIdprod()%>" readonly>
         <tr><th>Nombre<td>  <input class="form-control" type="text" name="nombre" value="<%=p.getNom()%>" >
         <tr><th>Descripción<td>  <input class="form-control" type="text" name="descripcion" value="<%=p.getDescrip()%>" >
-        <tr><th>Precio<td><input class="form-control" type="text" name="precio" value="<%=p.getPrecio()%>" >
+        <tr><th>Precio (s/.)<td><input class="form-control" type="text" name="precio" value="<%=p.getPrecio()%>" >
         <tr><th>Stock<td><input class="form-control" type="text" name="stock" value="<%=p.getStock()%>" >
         <tr><th>Descuento<td>  <input class="form-control" type="text" name="dscto" value="<%=p.getDscto()%>">
         <tr><th>Imagen<td>  <input type="file" name="fileFoto" value="">     

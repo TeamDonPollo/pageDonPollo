@@ -20,9 +20,10 @@ public class admi2 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        String op = request.getParameter("opc");
-        if (op.equals("1")) {
-            manProd(request, response);
-        }
+        if (op.equals("1"))manProd(request, response);
+        if (op.equals("2"))pagIntfzProd(request, response);
+        if (op.equals("3"))nuevoProd(request, response);
+        if (op.equals("4"))editProd(request, response);
     }
     
     protected void manProd(HttpServletRequest request, HttpServletResponse response)
@@ -32,11 +33,42 @@ public class admi2 extends HttpServlet {
         String nom = request.getParameter("nom");
         //HttpSession ses=request.getSession();
         request.setAttribute("dato", ng2.lisProd(code));
+        request.setAttribute("codProd", code);
         request.setAttribute("tipo", nom);
-        String pag="/admi/mGeneral.jsp";
+        String pag="/administrador/mGeneral.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
-        
+       
+    }
+    
+    protected void pagIntfzProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        String codp = request.getParameter("id");
+        request.setAttribute("cod", codp);
+        String pag="/administrador/nuevoProd.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+       
+    }
+    
+    protected void nuevoProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String codp = request.getParameter("id");
+        request.setAttribute("cod", codp);
+        String pag="/administrador/nuevoProd.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+       
+    }
+    
+     protected void editProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String codp = request.getParameter("id");
+        request.setAttribute("cod", codp);
+        request.setAttribute("objProd", ng2.busProd(codp));
+        String pag="/administrador/editProd.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

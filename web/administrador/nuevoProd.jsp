@@ -24,7 +24,7 @@
         <tr><th>Código<td>  <input class="form-control" type="text" value="<%=ng.generaCod()%>" readonly>
         <tr><th>Nombre<td>  <input class="form-control" type="text" name="nombre" value="" >
         <tr><th>Descripción<td>  <input class="form-control" type="text" name="descripcion" value="" >
-        <tr><th>Precio<td>s/<input class="form-control" type="text" name="precio" value="" >
+        <tr><th>Precio (s/.)<td><input class="form-control" type="text" name="precio" value="" >
         <tr><th>Stock<td><input class="form-control" type="text" name="stock" value="" >
         <tr><th>Descuento<td>  <input class="form-control" type="text" name="dscto" value="">
         <tr><th>Imagen<td>  <input type="file" name="fileFoto" value="">     
