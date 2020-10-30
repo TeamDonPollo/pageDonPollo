@@ -2,14 +2,14 @@
 
 package control;
 
-import dao.*;
+import com.sun.org.omg.CORBA.ParDescriptionSeqHelper;
+import dao.*; import modelo2.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.*;
 
 
 
@@ -23,7 +23,9 @@ public class admi2 extends HttpServlet {
         if (op.equals("1"))manProd(request, response);
         if (op.equals("2"))pagIntfzProd(request, response);
         if (op.equals("3"))nuevoProd(request, response);
-        if (op.equals("4"))editProd(request, response);
+        if (op.equals("4"))eProd(request, response);
+        if (op.equals("5"))editProd(request, response);
+        if (op.equals("6"))addProd(request, response);
     }
     
     protected void manProd(HttpServletRequest request, HttpServletResponse response)
@@ -59,15 +61,55 @@ public class admi2 extends HttpServlet {
         request.getRequestDispatcher(pag).forward(request, response);
        
     }
+     protected void eProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String codp = request.getParameter("id");
+        HttpSession rs=request.getSession();
+        request.setAttribute("cod", codp);
+        rs.setAttribute("objProd", ng2.busProd(codp));
+        
+        String pag="/administrador/editProd.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+       
+    }
     
      protected void editProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+          
+         HttpSession rs=request.getSession();
+        Producto s2=(Producto)rs.getAttribute("objProd");
+        String iddd=s2.getIdprod();
+         Producto a=new Producto();
+         a.setIdprod(iddd);
+         a.setNom(request.getParameter("nombre"));
+         a.setDescrip(request.getParameter("descripcion"));
+         a.setPrecio(Double.parseDouble(request.getParameter("precio")));
+         a.setStock(Integer.parseInt(request.getParameter("stock")));
+         a.setDscto(Integer.parseInt(request.getParameter("dscto")));
+        /* Part part=request.getPart("fileFoto"); InputStream inputS=part.getInputStream();
+         a.setFoto(inputS);*/
+         ng2.Modifica(a);
+         manProd(request, response);
+       
+    }
+     
+      protected void addProd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String codp = request.getParameter("id");
         request.setAttribute("cod", codp);
-        request.setAttribute("objProd", ng2.busProd(codp));
-        String pag="/administrador/editProd.jsp";
-        request.getRequestDispatcher(pag).forward(request, response);
+        Producto a=new Producto();
+         a.setNom(request.getParameter("nombre"));
+         a.setDescrip(request.getParameter("descripcion"));
+         a.setPrecio(Double.parseDouble(request.getParameter("precio")));
+         a.setStock(Integer.parseInt(request.getParameter("stock")));
+         a.setDscto(Integer.parseInt(request.getParameter("dscto")));
+         Part part=request.getPart("fileFoto"); 
+         InputStream inputS=part.getInputStream();
+         a.setFoto(inputS);
+       
+        manProd(request, response);
        
     }
 

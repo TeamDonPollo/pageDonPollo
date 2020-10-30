@@ -161,5 +161,68 @@ public class Negocio2 {
         }
         return cod;
     }
+     
+     public int Modifica(Producto a){
+	int resp=0;
+    Connection conn= null;
+	 try{
+    String sql="update producto set nom=?,descripcion=?,precio=?,stock=?"+
+          " descuento=? where idpt=?";
+    conn=MySQLConexion.getConexion();
+
+  PreparedStatement st=conn.prepareStatement(sql);
+
+	st.setString(6, a.getIdprod());
+        st.setString(1,a.getNom());
+        st.setString(2,a.getDescrip());
+        st.setDouble(3, a.getPrecio());
+        st.setInt(4, a.getStock());
+        st.setInt(5, a.getDscto());
+        //st.setBlob(6, a.getFoto());
+     
+        resp=	st.executeUpdate();
+	
+	 }catch(Exception ex){
+		 ex.printStackTrace();
+	 }finally{
+			try {
+			
+				if(conn!= null) conn.close();
+			} catch (Exception e2) {}
+		}
+
+	return resp;	
+	}
     
+      public void addProd(Producto a){
+	
+    Connection conn= null;
+	 try{
+    String sql="insert into producto (idpt,nom,descripcion,precio,stock,descuento,imagen)"+
+          " values(?,?,?,?,?,?,?)";
+    conn=MySQLConexion.getConexion();
+
+  PreparedStatement st=conn.prepareStatement(sql);
+
+	st.setString(1, generaCod());
+        st.setString(2,a.getNom());
+        st.setString(3,a.getDescrip());
+        st.setDouble(4, a.getPrecio());
+        st.setInt(5, a.getStock());
+        st.setInt(6, a.getDscto());
+        st.setBlob(7, a.getFoto());
+     
+       st.executeUpdate();
+	
+	 }catch(Exception ex){
+		 ex.printStackTrace();
+	 }finally{
+			try {
+			
+				if(conn!= null) conn.close();
+			} catch (Exception e2) {}
+		}
+
+	
+	}
 }
