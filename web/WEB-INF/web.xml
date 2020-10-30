@@ -12,6 +12,14 @@
         <servlet-name>admi2</servlet-name>
         <servlet-class>control.admi2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlRegistro</servlet-name>
+        <servlet-class>control.ControlRegistro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>control.NewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>admi2</servlet-name>
         <url-pattern>/admi2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlRegistro</servlet-name>
+        <url-pattern>/ControlRegistro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
