@@ -14,13 +14,13 @@
 
                 <%
                     TipoProductoDAO obj = new TipoProductoDAO();
-                    List<TipoProducto> lista = obj.ListaTipoProductos(); 
+                    List<TipoProducto> lista = obj.ListaTipoProductos();
 
-                    for (TipoProducto t : lista) { 
+                    for (TipoProducto t : lista) {
                 %>
                 <li class="nav-item active">
-                    <a href="admi?opc=6&code=<%=t.getCodTipo() %>" class="nav-link">
-                      <img src="image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
+                    <a href="admi?opc=6&code=<%=t.getCodTipo()%>" class="nav-link">
+                        <img src="image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
                 </li>            
                 <%
                     }
@@ -29,9 +29,23 @@
 
             <!-- registrar-->
             <!--<form class="form-inline my-2 my-lg-0">--> <!--No agregar como formulario el modal es el que redirecciona-->
+            <%
                 
+                HttpSession ses = request.getSession();
+
+                String nombreUsuario = "";
+                if (ses.getAttribute("usuario") != null) {
+
+                    nombreUsuario = (String) ses.getAttribute("usuario");
+            %>
+                 <a class="btn btn-primary my-2 my-sm-0" href="ControlRegistro?opc=3" >Salir</a>
+            <%
+            } else {
+            %>
                     <button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
-                
+            <%    }
+
+            %>
             <!--</form>-->
         </div>
 
