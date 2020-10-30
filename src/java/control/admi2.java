@@ -14,7 +14,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.*;
 
 
-
+@MultipartConfig
 public class admi2 extends HttpServlet {
      DaoProducto ng2=new DaoProducto();
   
@@ -72,7 +72,7 @@ public class admi2 extends HttpServlet {
         request.setAttribute("cod", codp);
         rs.setAttribute("objProd", ng2.busProd(codp));
         
-        String pag="/administrador/editProd.jsp";
+        String pag="/administrador/pruebaEditIMG.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
        
     }
@@ -80,9 +80,9 @@ public class admi2 extends HttpServlet {
      protected void editProd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           
-         HttpSession rs=request.getSession();
+        /* HttpSession rs=request.getSession();
         Producto s2=(Producto)rs.getAttribute("objProd");
-        String iddd=s2.getIdprod();
+        String iddd=s2.getIdprod();*/
          Producto a=new Producto();
          a.setIdprod(request.getParameter("idp"));
          a.setNom(request.getParameter("nombre"));
@@ -90,9 +90,11 @@ public class admi2 extends HttpServlet {
          a.setPrecio(Double.parseDouble(request.getParameter("precio")));
          a.setStock(Integer.parseInt(request.getParameter("stock")));
          a.setDscto(Integer.parseInt(request.getParameter("dscto")));
-         /*Part part=request.getPart("fileFoto"); InputStream inputS=part.getInputStream();
-         a.setFoto(inputS);*/
-        
+         if(request.getPart("fileFoto")!=null){
+             Part part=request.getPart("fileFoto"); InputStream inputS=part.getInputStream();
+             a.setFoto(inputS);
+         }
+         
        // request.setAttribute("prodd", a);
          ng2.Modifica(a);
          manProd(request, response);

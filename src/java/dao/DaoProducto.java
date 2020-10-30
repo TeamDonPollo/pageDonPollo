@@ -168,22 +168,32 @@ public class DaoProducto {
 	int resp=0;
     Connection conn= null;
 	 try{
-    String sql="Update producto set nom=?,descripcion=?,precio=?,stock=?,descuento=? where idpt=?";
-          
-    conn=MySQLConexion.getConexion();
-
-  PreparedStatement st=conn.prepareStatement(sql);
-
-	st.setString(6, a.getIdprod());
-        st.setString(1,a.getNom());
-        st.setString(2,a.getDescrip());
-        st.setDouble(3, a.getPrecio());
-        st.setInt(4, a.getStock());
-        st.setInt(5, a.getDscto());
-        //st.setBlob(6, a.getFoto());
-     
-        resp=	st.executeUpdate();
-	
+             String sql="";
+              conn=MySQLConexion.getConexion();
+             if(a.getFoto()==null){
+              sql="Update producto set nom=?,descripcion=?,precio=?,stock=?,descuento=?,imagen=? where idpt=?";   
+              PreparedStatement st = conn.prepareStatement(sql);
+             st.setString(7, a.getIdprod());
+             st.setString(1, a.getNom());
+             st.setString(2, a.getDescrip());
+             st.setDouble(3, a.getPrecio());
+             st.setInt(4, a.getStock());
+             st.setInt(5, a.getDscto());
+             st.setBlob(6, a.getFoto());
+             resp = st.executeUpdate();
+             }else{
+                sql="Update producto set nom=?,descripcion=?,precio=?,stock=?,descuento=? where idpt=?";   
+              PreparedStatement st = conn.prepareStatement(sql);
+             st.setString(6, a.getIdprod());
+             st.setString(1, a.getNom());
+             st.setString(2, a.getDescrip());
+             st.setDouble(3, a.getPrecio());
+             st.setInt(4, a.getStock());
+             st.setInt(5, a.getDscto());
+             resp = st.executeUpdate(); 
+             }
+    
+          	
 	 }catch(Exception ex){
 		 ex.printStackTrace();
 	 }finally{
@@ -275,4 +285,6 @@ public class DaoProducto {
               
           }
       }
+      
+      
 }

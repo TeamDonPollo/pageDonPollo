@@ -21,7 +21,7 @@
              </div><br>
     <center><h1>Producto: <%=p.getNom()%></h1></center>
     
-    <form action="admi2"> 
+    <form action="admi2" method="POST" enctype="multipart/form-data"> 
     <div class="container">
         <div class="abs-center">
     <table class="table table-bordered" >
@@ -31,7 +31,7 @@
         <tr><th>Precio (s/.)<td><input class="form-control" type="text" name="precio" value="<%=p.getPrecio()%>" >
         <tr><th>Stock<td><input class="form-control" type="text" name="stock" value="<%=p.getStock()%>" >
         <tr><th>Descuento<td>  <input class="form-control" type="text" name="dscto" value="<%=p.getDscto()%>">
-       <!-- <tr><th>Imagen<td>  <input type="file" name="fileFoto" value=""> -->
+        <tr><th>Imagen<td>  <input type="file" name="fileFoto" value=""> 
     </table>
         <input type="hidden" name="opc" value="5">
         <input type="hidden" name="code" value="<%=codT%>">

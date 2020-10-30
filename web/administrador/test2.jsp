@@ -24,7 +24,7 @@
                    <% for(Producto p:lis){
                        %>
                     <tr><th>Codigo Producto<td><%=p.getIdprod()%>
-                    <tr><th>Imagen<td><img src="contolIMG?id=<%=p.getCodtip()%>"
+                    <tr><th>Imagen<td><img src="contolIMG?id=<%=p.getIdprod()%>"
                                            width="200" height="250"
                                            onerror="src='../fotos/sin_foto.jpg'">        
                        

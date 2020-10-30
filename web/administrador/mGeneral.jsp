@@ -28,7 +28,7 @@
          <tr><th>Código</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Stock</th><th>Descuento</th>
              <th colspan="2"><center>Acciones</center></th>
              <%
-                 int indice=0;
+                 
                 for(Producto a:lis){
                      out.print("<tr><td>"+a.getIdprod()+"<td>"+a.getNom()+"<td>"+
                              a.getDescrip()+"<td>"+a.getPrecio()+"<td>"+a.getStock()+"<td>"+a.getDscto());
@@ -37,7 +37,7 @@
                  <th><a href="admi2?opc=7&id=<%=a.getIdprod()%>&nom=<%=tipon%>&code=<%=codp%>"><button type="button" class="btn btn-danger" onclick="eliminar(<%=a.getNom()%>)">Eliminar</button></a>
                  <th><a href="admi2?opc=4&id=<%=a.getIdprod()%>"><button type="button" class="btn btn-success">Editar</button></a>     
                       <%
-                          indice++;   }     
+                            }     
                      %>
      </table></div></div></form>
     <script>
