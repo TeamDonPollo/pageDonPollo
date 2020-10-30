@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ControlProductos extends HttpServlet {
 
     TipoProductoDAO obj = new TipoProductoDAO();
-    Negocio2 ng2=new Negocio2();
+    DaoProducto ng2=new DaoProducto();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

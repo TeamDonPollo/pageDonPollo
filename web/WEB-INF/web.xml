@@ -20,6 +20,10 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>control.NewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controlIMG</servlet-name>
+        <servlet-class>control.controlIMG</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controlIMG</servlet-name>
+        <url-pattern>/controlIMG</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

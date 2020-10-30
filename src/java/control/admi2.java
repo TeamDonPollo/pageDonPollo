@@ -16,7 +16,7 @@ import javax.servlet.http.*;
 
 
 public class admi2 extends HttpServlet {
-     Negocio2 ng2=new Negocio2();
+     DaoProducto ng2=new DaoProducto();
   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -125,7 +125,7 @@ public class admi2 extends HttpServlet {
       protected void delProd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           String codp = request.getParameter("id");
-          ng2.Anula(codp);
+          ng2.delProd(codp);
           manProd(request, response);
           
     }  

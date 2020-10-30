@@ -2,14 +2,16 @@
 
 package dao;
 
+import java.io.*;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.util.*;
+import javax.servlet.http.*;
 import util.MySQLConexion;
 import modelo2.*;
 
 
-public class Negocio2 {
+public class DaoProducto {
     public List<Producto> lisProd(String cod) {
         List<Producto> lis = new ArrayList<>();
         Connection conn = null;
@@ -198,19 +200,19 @@ public class Negocio2 {
 	
     Connection conn= null;
 	 try{
-    String sql="insert into producto (idpt,nom,descripcion,precio,stock,descuento,imagen)"+
-          " values(?,?,?,?,?,?,?)";
+    String sql="Insert into producto (idpt,nom,descripcion,precio,stock,codtip,descuento,imagen) values(?,?,?,?,?,?,?,?)";
     conn=MySQLConexion.getConexion();
 
   PreparedStatement st=conn.prepareStatement(sql);
 
-	st.setString(1, generaCod());
+	st.setString(1, a.getIdprod());
         st.setString(2,a.getNom());
         st.setString(3,a.getDescrip());
         st.setDouble(4, a.getPrecio());
         st.setInt(5, a.getStock());
-        st.setInt(6, a.getDscto());
-        st.setBlob(7, a.getFoto());
+        st.setString(6,a.getCodtip());
+        st.setInt(7, a.getDscto());
+        st.setBlob(8, a.getFoto());
      
        st.executeUpdate();
 	
@@ -226,7 +228,7 @@ public class Negocio2 {
 	
 	}
       
-      public void Anula(String id) {
+      public void delProd(String id) {
         int resp = 0;
         Connection conn = null;
         try {
@@ -245,7 +247,32 @@ public class Negocio2 {
             } catch (Exception e2) {
             }
         }
-
-        
-    }
+     }
+      
+      public void listarImg(String id, HttpServletResponse response){
+          Connection conn = null; ResultSet rs=null;
+          String sql="select * from producto where idpt="+id;
+          InputStream inputStream=null;
+          OutputStream outputStream=null;
+          BufferedInputStream bfInputSt=null;
+          BufferedOutputStream bfOutSt=null;
+          response.setContentType("image/*");
+          try{
+              outputStream=response.getOutputStream();
+              conn = MySQLConexion.getConexion();
+              PreparedStatement st = conn.prepareStatement(sql);
+              rs=st.executeQuery();
+              if(rs.next()){
+                  inputStream=rs.getBinaryStream("imagen");
+              }
+              bfInputSt=new BufferedInputStream(inputStream);
+              bfOutSt=new BufferedOutputStream(outputStream);
+              int i=0;
+              while((i=bfInputSt.read())!=-1){
+                  bfOutSt.write(i);
+              }
+          }catch (Exception ex) {
+              
+          }
+      }
 }

@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo2.*;import dao.*;
+import java.io.InputStream;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
 
-
+@MultipartConfig
 public class admi extends HttpServlet {
     TipoProductoDAO obj = new TipoProductoDAO();
-    Negocio2 ng2=new Negocio2();
+    DaoProducto ng2=new DaoProducto();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -41,40 +44,53 @@ public class admi extends HttpServlet {
         
     
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
+          
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+              
+        String accion=request.getParameter("accion");
+       // String cod=request.getParameter("code");
+        switch(accion){
+            case "Listar":
+              //  List<Producto> lista=ng2.lisProd(cod);
+               // request.setAttribute("lista", lista);
+               // String pag="/administrador/test2.jsp";
+               // request.getRequestDispatcher(pag).forward(request, response);
+                break;
+            case "Guardar":
+                String codp = request.getParameter("codpp");
+                //request.setAttribute("cod", codp);
+                Producto a = new Producto();
+                a.setNom(request.getParameter("nombre"));
+                a.setIdprod(codp);
+                a.setDescrip(request.getParameter("descripcion"));
+                a.setPrecio(Double.parseDouble(request.getParameter("precio")));
+                a.setStock(Integer.parseInt(request.getParameter("stock")));
+                a.setCodtip(request.getParameter("tipo"));
+                a.setDscto(Integer.parseInt(request.getParameter("dscto")));
+                Part part = request.getPart("fileFoto");
+                InputStream inputS = part.getInputStream();
+                a.setFoto(inputS);
+                ng2.addProd(a);
+                break;
+            default:
+                request.getRequestDispatcher("admi?accion=Listar").forward(request, response);
+                break;
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
+    
     @Override
     public String getServletInfo() {
         return "Short description";

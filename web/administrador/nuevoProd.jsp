@@ -8,7 +8,7 @@
     </head>
     <body>
          <%
-            Negocio2 ng=new Negocio2();
+            DaoProducto ng=new DaoProducto();
             String codP=(String)request.getAttribute("cod");
             TipoProducto tp=(TipoProducto)ng.busTip(codP);
             String nomTP=tp.getNomTipo();
