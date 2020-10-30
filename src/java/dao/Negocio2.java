@@ -166,8 +166,8 @@ public class Negocio2 {
 	int resp=0;
     Connection conn= null;
 	 try{
-    String sql="update producto set nom=?,descripcion=?,precio=?,stock=?"+
-          " descuento=? where idpt=?";
+    String sql="Update producto set nom=?,descripcion=?,precio=?,stock=?,descuento=? where idpt=?";
+          
     conn=MySQLConexion.getConexion();
 
   PreparedStatement st=conn.prepareStatement(sql);
@@ -225,4 +225,27 @@ public class Negocio2 {
 
 	
 	}
+      
+      public void Anula(String id) {
+        int resp = 0;
+        Connection conn = null;
+        try {
+            String sql = "delete from producto where idpt=?";
+            conn = MySQLConexion.getConexion();
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1,id);
+             resp = st.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+       if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+
+        
+    }
 }

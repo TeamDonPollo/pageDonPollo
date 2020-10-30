@@ -7,6 +7,8 @@ import dao.*; import modelo2.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.*;
@@ -26,6 +28,7 @@ public class admi2 extends HttpServlet {
         if (op.equals("4"))eProd(request, response);
         if (op.equals("5"))editProd(request, response);
         if (op.equals("6"))addProd(request, response);
+        if (op.equals("7"))delProd(request, response);
     }
     
     protected void manProd(HttpServletRequest request, HttpServletResponse response)
@@ -33,8 +36,8 @@ public class admi2 extends HttpServlet {
 
         String code = request.getParameter("code");
         String nom = request.getParameter("nom");
-        //HttpSession ses=request.getSession();
-        request.setAttribute("dato", ng2.lisProd(code));
+        HttpSession ses=request.getSession();
+        ses.setAttribute("dato", ng2.lisProd(code));
         request.setAttribute("codProd", code);
         request.setAttribute("tipo", nom);
         String pag="/administrador/mGeneral.jsp";
@@ -81,16 +84,22 @@ public class admi2 extends HttpServlet {
         Producto s2=(Producto)rs.getAttribute("objProd");
         String iddd=s2.getIdprod();
          Producto a=new Producto();
-         a.setIdprod(iddd);
+         a.setIdprod(request.getParameter("idp"));
          a.setNom(request.getParameter("nombre"));
          a.setDescrip(request.getParameter("descripcion"));
          a.setPrecio(Double.parseDouble(request.getParameter("precio")));
          a.setStock(Integer.parseInt(request.getParameter("stock")));
          a.setDscto(Integer.parseInt(request.getParameter("dscto")));
-        /* Part part=request.getPart("fileFoto"); InputStream inputS=part.getInputStream();
+         /*Part part=request.getPart("fileFoto"); InputStream inputS=part.getInputStream();
          a.setFoto(inputS);*/
+        
+       // request.setAttribute("prodd", a);
          ng2.Modifica(a);
          manProd(request, response);
+         
+        /* String pag="/administrador/testeo.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);*/
+         
        
     }
      
@@ -112,6 +121,14 @@ public class admi2 extends HttpServlet {
         manProd(request, response);
        
     }
+      
+      protected void delProd(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+          String codp = request.getParameter("id");
+          ng2.Anula(codp);
+          manProd(request, response);
+          
+    }  
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
