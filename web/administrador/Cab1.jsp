@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../fonts.css">
         <link rel="stylesheet" href="../css/style.css">
 
-        <!-- MDBootstrapp -->
+        <!-- MDBootstrapx -->
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
