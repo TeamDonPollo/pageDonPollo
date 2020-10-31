@@ -36,6 +36,10 @@
         <servlet-name>ControlCliente</servlet-name>
         <servlet-class>control.ControlCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlConsulta</servlet-name>
+        <servlet-class>control.ControlConsulta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ControlCliente</servlet-name>
         <url-pattern>/ControlCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlConsulta</servlet-name>
+        <url-pattern>/ControlConsulta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
