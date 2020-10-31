@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <!-- CSS BOOTSTRAP-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-        <link rel="stylesheet" href="../fonts.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" href="fonts.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!-- MDBootstrapp -->
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-        <link href="../css/styleRegistro.css" rel="stylesheet" type="text/css"/>
+        <link href="css/styleRegistro.css" rel="stylesheet" type="text/css"/>
 
         <!-- Script de BOOTSTRAP-->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
         <%@page import="dao.TipoProductoDAO"%>
     <body>
         <div style="background-color:black">
-            <center>   <img src="../image/Logo.png" width="260px" height="210px" id="borde"></center>
+            <center>   <img src="image/Logo.png" width="260px" height="210px" id="borde"></center>
         </div>
         
         <br>
@@ -47,21 +47,21 @@
                     for (TipoProducto t : lista) { 
                 %>
                 <li class="nav-item active">
-                    <a href="../admi2?opc=1&code=<%=t.getCodTipo() %>&nom=<%=t.getNomTipo()%>" class="nav-link">
+                    <a href="admi2?opc=1&code=<%=t.getCodTipo() %>&nom=<%=t.getNomTipo()%>" class="nav-link">
                         
-                        <img src="../image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
+                        <img src="image/<%=t.getImagenTipoProd()%>"><%=t.getNomTipo()%></a>
                 </li>            
                 <%
                     }
                 %>
                    <li class="nav-item" >
-                            <a href="../admi?opc=2" class="nav-link">
-                                <img src="../fotos/userf.png"> Clientes</a>
+                            <a href="admi?opc=2" class="nav-link">
+                                <img src="fotos/userf.png"> Clientes</a>
                         </li>
                    
                    <li class="nav-item" >
-                            <a href="../admi?opc=3" class="nav-link">
-                                <img src="../fotos/buzon.png">Quejas</a>
+                            <a href="admi?opc=3" class="nav-link">
+                                <img src="fotos/buzon.png">Quejas</a>
                         </li>
                     
                     </ul>
