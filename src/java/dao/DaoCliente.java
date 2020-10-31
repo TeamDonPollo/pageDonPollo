@@ -5,6 +5,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import modelo2.Administrador;
 import modelo2.Cliente;
 import util.MySQLConexion;
 
@@ -43,21 +44,22 @@ public class DaoCliente {
     }
     
     //CREAR LOS METODOS PARA LISTAR LOS REGISTROS
-    public Cliente buscaCliente(String nombre) {
+    public Cliente buscaCliente(String correo) {
 
         Cliente c = null;
         Connection conn = null;
 
         try {
             conn = MySQLConexion.getConexion();
-            String sql = "select pswd from cliente where nom=?";
+            String sql = "select nom, pswd from cliente where correo=?";
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, nombre);
+            st.setString(1, correo);
             ResultSet rs = st.executeQuery();
             //llenar el arraylist con la clase entidad
             while (rs.next()) {
                 c = new Cliente();
-                c.setPassword(rs.getString(1));
+                c.setNombre(rs.getString(1));
+                c.setPassword(rs.getString(2));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -72,6 +74,39 @@ public class DaoCliente {
         }
 
         return c;
+    }
+    
+    
+    public Administrador buscaAdministrador(String correo) {
+
+        Administrador a = null;
+        Connection conn = null;
+
+        try {
+            conn = MySQLConexion.getConexion();
+            String sql = "select nomad, pswd from administrador where correo=?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, correo);
+            ResultSet rs = st.executeQuery();
+            //llenar el arraylist con la clase entidad
+            while (rs.next()) {
+                a = new Administrador();
+                a.setNombre(rs.getString(1));
+                a.setPassword(rs.getString(2));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+
+        return a;
     }
     
 }

@@ -29,8 +29,8 @@
                             <div class="modal-body mb-1">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-address-card prefix"></i>
-                                    <label>Tu nombre</label>
-                                    <input  name="nombre" type="text" class="form-control form-control-sm ">
+                                    <label>Tu email</label>
+                                    <input  name="email" type="text" required="" class="form-control form-control-sm ">
                                 </div>
 
                                 <div class="md-form form-sm mb-4">

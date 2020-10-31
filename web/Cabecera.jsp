@@ -30,7 +30,6 @@
             <!-- registrar-->
             <!--<form class="form-inline my-2 my-lg-0">--> <!--No agregar como formulario el modal es el que redirecciona-->
             <%
-                
                 HttpSession ses = request.getSession();
 
                 String nombreUsuario = "";
@@ -38,13 +37,23 @@
 
                     nombreUsuario = (String) ses.getAttribute("usuario");
             %>
-                 <a class="btn btn-primary my-2 my-sm-0" href="ControlRegistro?opc=3" >Salir</a>
+            <a class="btn btn-primary my-2 my-sm-0" href="ControlRegistro?opc=3" >Salir</a>
             <%
             } else {
             %>
-                    <button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
+            <button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
             <%    }
 
+                String login = (String) ses.getAttribute("login");
+
+                if (login != null) {
+            %>
+            <script>
+                alert("Sus datos han sido incorrectos al logearse");
+            </script>
+            <%
+                ses.setAttribute("login", null);
+                }
             %>
             <!--</form>-->
         </div>

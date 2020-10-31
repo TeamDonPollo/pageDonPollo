@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo2.Administrador;
 import modelo2.Cliente;
 
 public class ControlRegistro extends HttpServlet {
@@ -109,25 +110,41 @@ public class ControlRegistro extends HttpServlet {
     protected void entrarSesion(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String nombre;
+        
         HttpSession ses = request.getSession();
-        Cliente c = new Cliente();
-        
-        c = obj.buscaCliente(request.getParameter("nombre"));
-        String nombre = request.getParameter("nombre");
-        
-        if (c.getPassword().equals((String) request.getParameter("password"))) {
+        ses.setAttribute("login", "false");
+        ses.setAttribute("usuario", null);
 
-            ses.setAttribute("usuario", nombre);
+        Cliente c = new Cliente();
+        c = obj.buscaCliente(request.getParameter("email"));
+
+        if (c == null) {
+
+            Administrador a = new Administrador();
+            a = obj.buscaAdministrador(request.getParameter("email"));
+
+            if (a != null) {
+                if (a.getPassword().equals((String) request.getParameter("password"))) {
+                    nombre = a.getNombre();
+                    ses.setAttribute("usuario", nombre);
+                    ses.setAttribute("login", null);
+                    String pag = "/administrador/cabAdmi.jsp";
+                    request.getRequestDispatcher(pag).forward(request, response);
+                }
+            }
 
         } else {
-
-            ses.setAttribute("usuario", null);
-
+            
+            if (c.getPassword().equals((String) request.getParameter("password"))) {
+                nombre = c.getNombre();
+                ses.setAttribute("usuario", nombre);
+                ses.setAttribute("login", null);
+            }
         }
 
-       String pag = "/index2.jsp";
-       request.getRequestDispatcher(pag).forward(request, response);
-
+        String pag = "/index2.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

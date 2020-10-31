@@ -24,6 +24,14 @@
         <servlet-name>controlIMG</servlet-name>
         <servlet-class>control.ControIMG</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>aaaaa</servlet-name>
+        <servlet-class>control.aaaaa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>q</servlet-name>
+        <servlet-class>control.aaaaa</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>controlIMG</servlet-name>
         <url-pattern>/controlIMG</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>aaaaa</servlet-name>
+        <url-pattern>/aaaaa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>q</servlet-name>
+        <url-pattern>/q</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
