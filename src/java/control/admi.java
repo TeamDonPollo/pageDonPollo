@@ -25,7 +25,8 @@ public class admi extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
           String opc=request.getParameter("opc");
-        
+        if(opc.equals("3"))eConsul(request,response);
+        if(opc.equals("2"))eClientes(request,response);
         if(opc.equals("6"))lisProd(request, response); 
     }
     
@@ -42,6 +43,27 @@ public class admi extends HttpServlet {
 
     }
         
+          protected void eConsul(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String code = request.getParameter("code");
+        
+        String pag = "/administrador/listaConsultas.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
+          
+          protected void eClientes(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String code = request.getParameter("code");
+        
+        String pag = "/administrador/mClientes.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
     
 
    

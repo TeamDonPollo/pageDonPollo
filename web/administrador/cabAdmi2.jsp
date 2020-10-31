@@ -35,12 +35,12 @@
                 %>
                     
                  <li class="nav-item">
-                            <a href="administrador/mClientes.jsp" class="nav-link">
+                            <a href="admi?opc=2" class="nav-link">
                                 <img src="fotos/userf.png"> Clientes</a>
                         </li>
                    
                    <li class="nav-item">
-                            <a href="administrador/mQuejas.jsp" class="nav-link">
+                            <a href="admi?opc=3" class="nav-link">
                                 <img src="fotos/buzon.png">Quejas</a>
                         </li>  
                         </ul>

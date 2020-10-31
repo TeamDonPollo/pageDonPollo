@@ -21,7 +21,7 @@
                     %>
                     <div class="col-md-4 mt-3">
                         <div class="card" style="width: 22rem;">
-                            <img class="card-img-top" src="img/foto1.jpg" width="50" height="260">
+                            <img class="card-img-top" src="img/<%=p.getCodProducto()%>.jpg" width="50" height="260">
                             <div class="card-header">
                                 <p style="font-size: 14px;"><%=p.getProducto()%></p>
                             </div>
