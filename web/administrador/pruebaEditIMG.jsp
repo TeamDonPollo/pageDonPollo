@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="Cab2.jsp" %>
+        <%@include file="cabecera.jsp" %>
     </head>
     <body>
          <%
