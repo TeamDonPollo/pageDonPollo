@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>controlIMG</servlet-name>
-        <servlet-class>control.controlIMG</servlet-class>
+        <servlet-class>control.ControIMG</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>

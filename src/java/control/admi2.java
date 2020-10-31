@@ -93,6 +93,8 @@ public class admi2 extends HttpServlet {
          if(request.getPart("fileFoto")!=null){
              Part part=request.getPart("fileFoto"); InputStream inputS=part.getInputStream();
              a.setFoto(inputS);
+         }else{
+             a.setFoto(null);
          }
          
        // request.setAttribute("prodd", a);

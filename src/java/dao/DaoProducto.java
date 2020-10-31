@@ -170,7 +170,7 @@ public class DaoProducto {
 	 try{
              String sql="";
               conn=MySQLConexion.getConexion();
-             if(a.getFoto()==null){
+             if(a.getFoto()!=null){
               sql="Update producto set nom=?,descripcion=?,precio=?,stock=?,descuento=?,imagen=? where idpt=?";   
               PreparedStatement st = conn.prepareStatement(sql);
              st.setString(7, a.getIdprod());
@@ -181,7 +181,7 @@ public class DaoProducto {
              st.setInt(5, a.getDscto());
              st.setBlob(6, a.getFoto());
              resp = st.executeUpdate();
-             }else{
+             }if(a.getFoto()==null){
                 sql="Update producto set nom=?,descripcion=?,precio=?,stock=?,descuento=? where idpt=?";   
               PreparedStatement st = conn.prepareStatement(sql);
              st.setString(6, a.getIdprod());
@@ -261,7 +261,7 @@ public class DaoProducto {
       
       public void listarImg(String id, HttpServletResponse response){
           Connection conn = null; ResultSet rs=null;
-          String sql="select * from producto where idpt="+id;
+          
           InputStream inputStream=null;
           OutputStream outputStream=null;
           BufferedInputStream bfInputSt=null;
@@ -270,7 +270,9 @@ public class DaoProducto {
           try{
               outputStream=response.getOutputStream();
               conn = MySQLConexion.getConexion();
+              String sql="select * from producto where idpt=?";
               PreparedStatement st = conn.prepareStatement(sql);
+              st.setString(1,id);
               rs=st.executeQuery();
               if(rs.next()){
                   inputStream=rs.getBinaryStream("imagen");
