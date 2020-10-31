@@ -27,8 +27,8 @@ public class ControIMG extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String id=request.getParameter("id");
-        dp.listarImg("id", response);
+        String id=request.getParameter("idt");
+        dp.listarImg(id, response);
     }
 
     
