@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="Cab2.jsp" %>
+        <%@include file="cabecera.jsp" %>
     </head>
     <body>
          <%
@@ -22,7 +22,8 @@
     <div class="container">
         <div class="abs-center">
     <table class="table table-bordered" >
-        <tr><th>Código<td>  <input class="form-control" type="text" value="<%=ng.generaCod()%>" readonly>
+        <tr><th>Cod Tipo Producto<td>  <input class="form-control" type="text" name="tipo" value="<%=tp.getCodTipo()%>" readonly>
+        <tr><th>Cod Producto<td>  <input class="form-control" type="text" name="cp" value="<%=ng.generaCod()%>" readonly>
         <tr><th>Nombre<td>  <input class="form-control" type="text" name="nombre" value="" >
         <tr><th>Descripción<td>  <input class="form-control" type="text" name="descripcion" value="" >
         <tr><th>Precio (s/.)<td><input class="form-control" type="text" name="precio" value="" >

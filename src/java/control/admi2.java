@@ -110,17 +110,22 @@ public class admi2 extends HttpServlet {
       protected void addProd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String codp = request.getParameter("id");
-        request.setAttribute("cod", codp);
-        Producto a=new Producto();
-         a.setNom(request.getParameter("nombre"));
-         a.setDescrip(request.getParameter("descripcion"));
-         a.setPrecio(Double.parseDouble(request.getParameter("precio")));
-         a.setStock(Integer.parseInt(request.getParameter("stock")));
-         a.setDscto(Integer.parseInt(request.getParameter("dscto")));
-         Part part=request.getPart("fileFoto"); 
-         InputStream inputS=part.getInputStream();
-         a.setFoto(inputS);
+               String codp = request.getParameter("cp");
+                //request.setAttribute("cod", codp);
+                Producto a = new Producto();
+                a.setNom(request.getParameter("nombre"));
+                a.setIdprod(codp);
+                a.setDescrip(request.getParameter("descripcion"));
+                a.setPrecio(Double.parseDouble(request.getParameter("precio")));
+                a.setStock(Integer.parseInt(request.getParameter("stock")));
+                a.setCodtip(request.getParameter("tipo"));
+                a.setDscto(Integer.parseInt(request.getParameter("dscto")));
+                Part part = request.getPart("fileFoto");
+                InputStream inputS = part.getInputStream();
+                a.setFoto(inputS);
+                ng2.addProd(a);
+          
+          
        
         manProd(request, response);
        
