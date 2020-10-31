@@ -78,8 +78,17 @@ public class ControlConsulta extends HttpServlet {
         request.getRequestDispatcher(ruta).forward(request, response);
     }
 
-    private void delConsultas(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void delConsultas(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException {
+        
+        DaoConsulta obj = new DaoConsulta();
+        
+        int cod = Integer.parseInt(request.getParameter("cod"));
+        obj.delConsulta(cod);
+        
+        String ruta = "/administrador/listaConsultas.jsp";
+        request.getRequestDispatcher(ruta).forward(request, response);
+        
     }
 
     private void addConsultas(HttpServletRequest request, HttpServletResponse response) 
@@ -88,17 +97,17 @@ public class ControlConsulta extends HttpServlet {
         DaoConsulta obj = new DaoConsulta();
         HttpSession ses = request.getSession();
 
-       Integer cod = (Integer)ses.getAttribute("cod");
+       
         String nombre = request.getParameter("usuario");
         String correo = request.getParameter("email");
         String cons = request.getParameter("mensaje");
 
-        p.setIdcon(cod);
+        
         p.setNom(nombre);
         p.setCorreo(correo);
         p.setCons(cons);
         obj.addConsulta(p);
-        String ruta = "/listaPacientes.jsp";
+        String ruta = "index2.jsp";
         request.getRequestDispatcher(ruta).forward(request, response);
     
     }

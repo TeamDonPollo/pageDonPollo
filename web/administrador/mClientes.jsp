@@ -12,7 +12,7 @@
     <body>
         <%@include file="cabAdmi2.jsp" %>
     <center> <h1>Listado de Clientes</h1></center>
-    <form>
+   
             <div class="container">
         <div class="abs-center">
             <table action="" class="table table-striped">
@@ -23,24 +23,26 @@
                     <th>Tipo docuemnto</th>
                     <th>Documento</th>
                     <th>Sexo</th>
-                    <th>Fecha</th>
                     <th>Correo</th>
+                    <th>Fecha</th>
                     <th>Contraseña</th>
+                    <th>Eliminar</th>
                     
                 </tr>
                 <%
                     DaoCliente obj2 = new DaoCliente();
                     for (Cliente x: obj2.listaClientes()) {
                             out.print("<tr><td>"+x.getCodigo()+"<td>"+x.getNombre()+"<td>"+x.getApellido()+"<td>"+x.getTipoDoc()
-                                    +"<td>"+x.getNroDoc()+"<td>"+x.getSexo()+"<td>"+x.getCorreo()+"<td>"+x.getPassword()+"<td>");
+                                    +"<td>"+x.getNroDoc()+"<td>"+x.getSexo()+"<td>"+x.getCorreo()+"<td>"+x.getFecha()+"<td>"+
+                                    x.getPassword()+"<td>");
                     %>
-                    <a href="ControlClientes?opc=2&cod=<%=x.getCodigo()%>"><button class="btn btn-danger">Eliminar</button></a>
+                    <a href="ControlCliente?opc=2&cod=<%=x.getCodigo()%>"><button class="btn btn-danger">Eliminar</button></a>
                     <%
                     }
                     
                 %>
             </table>
         </div></div>
-        </form>
+        
     </body>
 </html>

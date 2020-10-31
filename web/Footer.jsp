@@ -13,7 +13,7 @@
             </div>
 
             <div class="formulario-conten">
-                <form  name="fr" id="formulario">
+                <form action="ControlConsulta" name="fr" id="formulario">
 
                     <label for="usuario" >Nombre y apellido:</label>
                     <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu Nombre">
@@ -23,7 +23,7 @@
 
                     <label for="mensaje">Escribe tu mensaje</label>
                     <textarea name="mensaje" id="mensaje"></textarea>
-
+                    <input type="hidden" name="opc" value="3">
                     <div class="send">
                         <button class="btn btn-primary my-2 my-sm-0" type="submit" value="Enviar" onclick="calculo()">Enviar</button>
                     </div>

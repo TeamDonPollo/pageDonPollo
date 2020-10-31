@@ -13,7 +13,7 @@
         
     <center><h1>Consultas de posibles clientes</h1></center>
         <br>
-        <form>
+        
             <div class="container">
         <div class="abs-center">
             <table action="" class="table table-striped">
@@ -37,6 +37,6 @@
                 %>
             </table>
         </div></div>
-        </form>
+        
     </body>
 </html>

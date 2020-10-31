@@ -1,5 +1,3 @@
-
-
 package control;
 
 import java.io.IOException;
@@ -11,27 +9,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo2.*;import dao.*;
+import modelo2.*;
+import dao.*;
 import java.io.InputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
 
 @MultipartConfig
 public class admi extends HttpServlet {
+
     TipoProductoDAO obj = new TipoProductoDAO();
-    DaoProducto ng2=new DaoProducto();
-    
+    DaoProducto ng2 = new DaoProducto();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-          String opc=request.getParameter("opc");
-        if(opc.equals("3"))eConsul(request,response);
-        if(opc.equals("2"))eClientes(request,response);
-        if(opc.equals("6"))lisProd(request, response); 
+        
+        
+        String opc = request.getParameter("opc");
+        
+        if (opc.equals("2")) {
+            eClientes(request, response);
+        }
+        if (opc.equals("3")) {
+            eConsul(request, response);
+        }
+
+        if (opc.equals("6")) {
+            lisProd(request, response);
+        }
     }
-    
-         
-          protected void lisProd(HttpServletRequest request, HttpServletResponse response)
+
+    protected void lisProd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String code = request.getParameter("code");
@@ -42,52 +50,43 @@ public class admi extends HttpServlet {
         request.getRequestDispatcher(pag).forward(request, response);
 
     }
-        
-          protected void eConsul(HttpServletRequest request, HttpServletResponse response)
+
+    protected void eConsul(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String code = request.getParameter("code");
-        
         String pag = "/administrador/listaConsultas.jsp";
 
         request.getRequestDispatcher(pag).forward(request, response);
 
     }
-          
-          protected void eClientes(HttpServletRequest request, HttpServletResponse response)
+
+    protected void eClientes(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String code = request.getParameter("code");
-        
         String pag = "/administrador/mClientes.jsp";
 
         request.getRequestDispatcher(pag).forward(request, response);
 
     }
-    
 
-   
-          
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-   
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              
-        String accion=request.getParameter("accion");
-       // String cod=request.getParameter("code");
-        switch(accion){
+
+        String accion = request.getParameter("accion");
+        // String cod=request.getParameter("code");
+        switch (accion) {
             case "Listar":
-              //  List<Producto> lista=ng2.lisProd(cod);
-               // request.setAttribute("lista", lista);
-               // String pag="/administrador/test2.jsp";
-               // request.getRequestDispatcher(pag).forward(request, response);
+                //  List<Producto> lista=ng2.lisProd(cod);
+                // request.setAttribute("lista", lista);
+                // String pag="/administrador/test2.jsp";
+                // request.getRequestDispatcher(pag).forward(request, response);
                 break;
             case "Guardar":
                 String codp = request.getParameter("codpp");
@@ -111,8 +110,6 @@ public class admi extends HttpServlet {
         }
     }
 
-    
-    
     @Override
     public String getServletInfo() {
         return "Short description";

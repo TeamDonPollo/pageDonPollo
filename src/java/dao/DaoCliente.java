@@ -1,4 +1,3 @@
-
 package dao;
 
 import java.sql.CallableStatement;
@@ -12,8 +11,7 @@ import modelo2.Cliente;
 import util.MySQLConexion;
 
 public class DaoCliente {
-    
-    
+
     //ADICION ALUMNOS
     public void adicionarCliente(Cliente c) {
 
@@ -30,7 +28,7 @@ public class DaoCliente {
             st.setString(5, c.getTipoDoc());
             st.setInt(6, Integer.parseInt(c.getNroDoc()));
             st.setString(7, c.getFecha());
-            st.setString(8,c.getSexo());
+            st.setString(8, c.getSexo());
             st.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -44,7 +42,7 @@ public class DaoCliente {
             }
         }
     }
-    
+
     //CREAR LOS METODOS PARA LISTAR LOS REGISTROS
     public Cliente buscaCliente(String correo) {
 
@@ -77,8 +75,7 @@ public class DaoCliente {
 
         return c;
     }
-    
-    
+
     public Administrador buscaAdministrador(String correo) {
 
         Administrador a = null;
@@ -110,14 +107,14 @@ public class DaoCliente {
 
         return a;
     }
-    
+
     public List<Cliente> listaClientes() {
         List<Cliente> lis = new ArrayList<>();
         Connection conn = null;
 
         try {
             conn = MySQLConexion.getConexion();
-            String sql = "select * from consulta;";
+            String sql = "select * from cliente";
             //st.setString(1, cad);
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -127,12 +124,12 @@ public class DaoCliente {
                 a.setCodigo(rs.getString(1));
                 a.setNombre(rs.getString(2));
                 a.setApellido(rs.getString(3));
-                a.setTipoDoc(rs.getString(4));
-                a.setNroDoc(rs.getString(5));
-                a.setSexo(rs.getString(6));
-                a.setFecha(rs.getString(7));
-                a.setCorreo(rs.getString(8));
-                a.setPassword(rs.getString(8));
+                a.setCorreo(rs.getString(4));
+                a.setPassword(rs.getString(5));
+                a.setTipoDoc(rs.getString(6));
+                a.setNroDoc(rs.getString(7));
+                a.setFecha(rs.getString(8));
+                a.setSexo(rs.getString(9));
                 lis.add(a);
             }
         } catch (Exception ex) {
@@ -147,5 +144,29 @@ public class DaoCliente {
             }
         }
 
-        return lis;}
+        return lis;
+    }
+
+    public void delCliente(String id) {
+
+        Connection conn = null;
+
+        try {
+            conn = MySQLConexion.getConexion();
+            String sql = "delete from cliente where codc=?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, id);
+            st.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+    }
 }

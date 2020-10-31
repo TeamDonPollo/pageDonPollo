@@ -1,5 +1,6 @@
 package control;
 
+import dao.DaoCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,10 +14,13 @@ public class ControlCliente extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-       if (request.getParameter("opc").equals("1")) {
+        
+        String opc = request.getParameter("opc");
+        
+       if (opc.equals("1")) {
             listaClientes(request, response);
         }
-        if (request.getParameter("opc").equals("2")) {
+        if (opc.equals("2")) {
             delClientes(request, response);
         }
         }
@@ -44,10 +48,20 @@ public class ControlCliente extends HttpServlet {
         request.getRequestDispatcher(ruta).forward(request, response);
     }
 
-    private void delClientes(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void delClientes(HttpServletRequest request, HttpServletResponse response) 
+         throws ServletException, IOException {
+        
+        DaoCliente obj = new DaoCliente();
+        
+        String cod = request.getParameter("cod");
+        obj.delCliente(cod);
+        
+        String ruta = "/administrador/mClientes.jsp";
+        request.getRequestDispatcher(ruta).forward(request, response);
+        
+        
     }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -54,10 +54,10 @@ public class DaoConsulta {
         try {
             conn = MySQLConexion.getConexion();
             String sql = "{call ADICION_CONSULTA( ?, ?, ?)}";
-            PreparedStatement st = conn.prepareCall(sql);
+            CallableStatement st = conn.prepareCall(sql);
             st.setString(1, p.getNom());
-            st.setString(3, p.getCorreo());
-            st.setString(4, p.getCons());
+            st.setString(2, p.getCorreo());
+            st.setString(3, p.getCons());
             st.executeUpdate();
             //llenar el arraylist con la clase entidad
         } catch (Exception ex) {
@@ -73,14 +73,14 @@ public class DaoConsulta {
         }
     }
      
-    public void delConsulta(Integer id) {
+    public void delConsulta(int id) {
         
         Connection conn = null;
 
         try {
             conn = MySQLConexion.getConexion();
             String sql = "delete from consulta where idcon=?";
-            CallableStatement st = conn.prepareCall(sql);
+            PreparedStatement st = conn.prepareStatement(sql);
             st.setInt(1, id);
             st.executeUpdate();
         } catch (Exception ex) {
