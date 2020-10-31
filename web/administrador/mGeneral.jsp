@@ -25,7 +25,7 @@
     <div class="container">
         <div class="abs-center">
      <table class="table table-hover" >
-         <tr><th>Código</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Stock</th><th>Descuento</th>
+         <tr><th>Código</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Stock</th><th>Descuento</th><th>Imagen</th>
              <th colspan="2"><center>Acciones</center></th>
              <%
                  
@@ -33,7 +33,7 @@
                      out.print("<tr><td>"+a.getIdprod()+"<td>"+a.getNom()+"<td>"+
                              a.getDescrip()+"<td>"+a.getPrecio()+"<td>"+a.getStock()+"<td>"+a.getDscto());
                   %>   
-                 
+                 <td><img src="productos2/<%=a.getIdprod()%>.jpg" width="70" height="90" class="img-rounded" >
                  <th><a href="admi2?opc=7&id=<%=a.getIdprod()%>&nom=<%=tipon%>&code=<%=codp%>"><button type="button" class="btn btn-danger" onclick="eliminar(<%=a.getNom()%>)">Eliminar</button></a>
                  <th><a href="admi2?opc=4&id=<%=a.getIdprod()%>"><button type="button" class="btn btn-success">Editar</button></a>     
                       <%

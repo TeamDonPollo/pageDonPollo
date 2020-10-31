@@ -19,8 +19,8 @@
              <div style="background-color:black">
             <center>   <img src="image/Logo.png" width="260px" height="210px" id="borde"></center>
              </div><br>
-    <center><h1>Producto: <%=p.getNom()%></h1></center>
-    
+    <center><h1>Producto: <%=p.getNom()%></h1><br>
+        <h3><img src="productos2/<%=p.getIdprod()%>.jpg" width="230" height="270" class="img-rounded" ></h3></center><br>
     <form action="admi2" method="POST" enctype="multipart/form-data"> 
     <div class="container">
         <div class="abs-center">
@@ -31,7 +31,7 @@
         <tr><th>Precio (s/.)<td><input class="form-control" type="text" name="precio" value="<%=p.getPrecio()%>" >
         <tr><th>Stock<td><input class="form-control" type="text" name="stock" value="<%=p.getStock()%>" >
         <tr><th>Descuento<td>  <input class="form-control" type="text" name="dscto" value="<%=p.getDscto()%>">
-        <tr><th>Imagen<td>  <input type="file" name="fileFoto" value=""> 
+        <tr><th>Nueva Imagen<td>  <input type="file" name="fileFoto" value=""> 
     </table>
         <input type="hidden" name="opc" value="5">
         <input type="hidden" name="code" value="<%=codT%>">
@@ -39,5 +39,8 @@
         <center><img src="image/btnGuardar.png">
             <input type="submit" class="btn btn-info" name="accion" value="Guardar"></center>
         </div></div></form>
+        <br><br><br>
+        
+        
     </body>
 </html>
