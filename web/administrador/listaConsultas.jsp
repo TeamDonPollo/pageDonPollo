@@ -30,7 +30,7 @@
                     for (Consulta x: obj2.listaConsultas()) {
                             out.print("<tr><td>"+x.getIdcon()+"<td>"+x.getNom()+"<td>"+x.getCorreo()+"<td>"+x.getCons()+"<td>");
                     %>
-                    <a href="servlet?opc=2&cod=<%=x.getIdcon()%>"><button class="btn btn-danger">Eliminar</button></a>
+                    <a href="ControlConsulta?opc=2&cod=<%=x.getIdcon()%>"><button class="btn btn-danger">Eliminar</button></a>
                     <%
                     }
                     

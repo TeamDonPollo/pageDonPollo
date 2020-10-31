@@ -1,6 +1,7 @@
 
 package control;
 
+import dao.DaoConsulta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.Consulta;
 
 public class ControlConsulta extends HttpServlet {
 
@@ -80,8 +82,25 @@ public class ControlConsulta extends HttpServlet {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void addConsultas(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void addConsultas(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException {
+         Consulta p = new Consulta();
+        DaoConsulta obj = new DaoConsulta();
+        HttpSession ses = request.getSession();
+
+       Integer cod = (Integer)ses.getAttribute("cod");
+        String nombre = request.getParameter("usuario");
+        String correo = request.getParameter("email");
+        String cons = request.getParameter("mensaje");
+
+        p.setIdcon(cod);
+        p.setNom(nombre);
+        p.setCorreo(correo);
+        p.setCons(cons);
+        obj.addConsulta(p);
+        String ruta = "/listaPacientes.jsp";
+        request.getRequestDispatcher(ruta).forward(request, response);
+    
     }
 
 }

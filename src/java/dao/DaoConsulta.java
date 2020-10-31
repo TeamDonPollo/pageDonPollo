@@ -53,10 +53,9 @@ public class DaoConsulta {
 
         try {
             conn = MySQLConexion.getConexion();
-            String sql = "{call ADICION_CONSULTA(?, ?, ?, ?)}";
-            CallableStatement st = conn.prepareCall(sql);
-            st.setInt(1, p.getIdcon());
-            st.setString(2, p.getNom());
+            String sql = "{call ADICION_CONSULTA( ?, ?, ?)}";
+            PreparedStatement st = conn.prepareCall(sql);
+            st.setString(1, p.getNom());
             st.setString(3, p.getCorreo());
             st.setString(4, p.getCons());
             st.executeUpdate();
