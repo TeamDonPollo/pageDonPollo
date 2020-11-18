@@ -26,7 +26,7 @@
                     }
                 %>
             </ul>
-
+            <a href="ControlCarrito?accion=miCarrito" class="btn btn-primary my-2 my-sm-0" title="Mi Carrito"><i class="fas fa-shopping-cart"></i></a>&nbsp;
             <!-- registrar-->
             <!--<form class="form-inline my-2 my-lg-0">--> <!--No agregar como formulario el modal es el que redirecciona-->
             <%
@@ -52,7 +52,7 @@
                 alert("Sus datos han sido incorrectos al logearse");
             </script>
             <%
-                ses.setAttribute("login", null);
+                    ses.setAttribute("login", null);
                 }
             %>
             <!--</form>-->

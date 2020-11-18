@@ -28,7 +28,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Precio S/. <%=p.getPrecio()%></li>
                                 <li class="list-group-item">
-                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                    <a href="ControlCarrito?accion=agregar&code=<%=p.getCodProducto() %>&tcan=1" class="btn btn-primary">Comprar</a>
                                 </li>
                             </ul>
                         </div>
@@ -41,7 +41,7 @@
             </div>
         </section>
 
-        <%@include file="Footer.jsp" %>%>
+        <%@include file="Footer.jsp" %>
 
 
         <!-- Script de BOOTSTRAP-->

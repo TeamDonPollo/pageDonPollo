@@ -1,11 +1,9 @@
-
-
 package modelo2;
 
 import java.io.InputStream;
 
-
 public class Producto {
+
     private String idprod;
     private String nom;
     private String descrip;
@@ -14,15 +12,20 @@ public class Producto {
     private String codtip;
     private int dscto;
     private InputStream foto;
-    
-    public Producto(){}
+
+    public Producto() {
+    }
 
     public Producto(String idprod, String nom, String descrip, double precio, int stock, String codtip, int dscto, InputStream foto) {
-        this.idprod = idprod;        this.nom = nom;        this.descrip = descrip;        this.precio = precio;
-        this.stock = stock;        this.codtip = codtip;        this.dscto = dscto;
+        this.idprod = idprod;
+        this.nom = nom;
+        this.descrip = descrip;
+        this.precio = precio;
+        this.stock = stock;
+        this.codtip = codtip;
+        this.dscto = dscto;
         this.foto = foto;
     }
-    
 
     public String getIdprod() {
         return idprod;
@@ -87,5 +90,5 @@ public class Producto {
     public void setFoto(InputStream foto) {
         this.foto = foto;
     }
-    
+
 }

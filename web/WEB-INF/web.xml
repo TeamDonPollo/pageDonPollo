@@ -40,6 +40,10 @@
         <servlet-name>ControlConsulta</servlet-name>
         <servlet-class>control.ControlConsulta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlCarrito</servlet-name>
+        <servlet-class>control.ControlCarrito</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ControlConsulta</servlet-name>
         <url-pattern>/ControlConsulta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlCarrito</servlet-name>
+        <url-pattern>/ControlCarrito</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
