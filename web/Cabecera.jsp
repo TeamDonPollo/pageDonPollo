@@ -2,8 +2,30 @@
 <%@page import="java.util.List"%>
 <%@page import="dao.TipoProductoDAO"%>
 
+
+<%
+    HttpSession ses = request.getSession();
+
+    String nombreUsuario = "";
+
+%>
+
 <div style="background-color:black">
-    <center>   <img src="image/Logo.png" width="260px" height="210px" id="borde"></center>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <center>   <img src="image/Logo.png" width="260px" height="210px" id="borde"></center>
+        </div>
+        <div class="col-2" style="position:relative"> 
+            <%                if (ses.getAttribute("usuario") != null) {
+
+                    nombreUsuario = (String) ses.getAttribute("usuario");
+            %>    
+            <span style="position:absolute; bottom:0; margin-bottom:20px; padding: 15px; background: white; ">
+                <i class="fas fa-user"></i> Bienvenido, <%=nombreUsuario%></span>
+                <%}%>            
+        </div>
+    </div>
 </div>
 
 <header>
@@ -30,9 +52,6 @@
             <!-- registrar-->
             <!--<form class="form-inline my-2 my-lg-0">--> <!--No agregar como formulario el modal es el que redirecciona-->
             <%
-                HttpSession ses = request.getSession();
-
-                String nombreUsuario = "";
                 if (ses.getAttribute("usuario") != null) {
 
                     nombreUsuario = (String) ses.getAttribute("usuario");
