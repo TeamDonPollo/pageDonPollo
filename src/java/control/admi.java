@@ -33,7 +33,9 @@ public class admi extends HttpServlet {
         if (opc.equals("3")) {
             eConsul(request, response);
         }
-
+        if (opc.equals("4")) {
+            grafico(request, response);
+        }
         if (opc.equals("6")) {
             lisProd(request, response);
         }
@@ -69,6 +71,14 @@ public class admi extends HttpServlet {
 
     }
 
+      protected void grafico(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String pag = "/administrador/pgGrafico.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -114,5 +124,6 @@ public class admi extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }

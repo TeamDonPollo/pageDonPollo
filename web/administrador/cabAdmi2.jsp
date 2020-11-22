@@ -42,7 +42,12 @@
                    <li class="nav-item">
                             <a href="admi?opc=3" class="nav-link">
                                 <img src="fotos/buzon.png">Quejas</a>
-                        </li>  
+                        </li> 
+                    <li class="nav-item">
+                            <a href="admi?opc=4" class="nav-link">
+                                <img src="fotos/grafica.png">Graficas</a>
+                        </li> 
+                        
                         </ul>
                 </div>
 
