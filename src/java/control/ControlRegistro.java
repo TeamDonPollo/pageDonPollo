@@ -129,7 +129,7 @@ public class ControlRegistro extends HttpServlet {
                     nombre = a.getNombre();
                     ses.setAttribute("usuario", nombre);
                     ses.setAttribute("login", null);
-                    String pag = "/administrador/cabAdmi.jsp";
+                    String pag = "/administrador/cabAdmi2.jsp";
                     request.getRequestDispatcher(pag).forward(request, response);
                 }
             }

@@ -10,13 +10,13 @@
 
 %>
 
-<div style="background-color:black">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+
+    <div class="row" style="background-color:black">
+        <div class="col-3"></div>
+        <div class="col-6">
             <center>   <img src="image/Logo.png" width="260px" height="210px" id="borde"></center>
         </div>
-        <div class="col-2" style="position:relative"> 
+        <div class="col-3" style="position:relative"> 
             <%                if (ses.getAttribute("usuario") != null) {
 
                     nombreUsuario = (String) ses.getAttribute("usuario");
@@ -26,7 +26,7 @@
                 <%}%>            
         </div>
     </div>
-</div>
+
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-nav bg-white" id="menu">
