@@ -15,6 +15,7 @@
 
         <section>
             <div class="container">
+<<<<<<< HEAD
                 <%                    String codCliente = "" , nombreLogeado = "";
                     if (sesionCarrito.getAttribute("idCliente") != null) {
                         codCliente = sesionCarrito.getAttribute("idCliente").toString();
@@ -25,6 +26,8 @@
                     }
                 %>
 
+=======
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
                 <div class="row">
                     <table class="table table-bordered table-striped table-hover">
                         <tr>
@@ -52,7 +55,11 @@
                             <td><%=cp.getPrecio()%></td>
                             <td><%=cp.Total()%></td>
                             <td>
+<<<<<<< HEAD
                                 <a href="ControlCarrito?accion=eliminar&posc=<%=posc%>" class="btn btn-danger" onclick="return confirm('ï¿½Esta seguro que desea eliminar el producto?')">Eliminar</a>
+=======
+                                <a href="ControlCarrito?accion=eliminar&posc=<%=posc%>" class="btn btn-danger" onclick="return confirm('¿Esta seguro que desea eliminar el producto?')">Eliminar</a>
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
                             </td>
                         </tr>
 
@@ -84,25 +91,33 @@
 
 
         <!-- Script de BOOTSTRAP-->
+<<<<<<< HEAD
         <!--
           <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
        
         -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+=======
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
         <script type="text/javascript">
+<<<<<<< HEAD
             
                                     
             
+=======
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
                                     function ActualizarCarrito(posc, codeProd) {
                                         var cantidad = $("#cant" + posc).val();
 
                                         window.location.href = "ControlCarrito?accion=actualizar&tcan=" + cantidad + "&code=" + codeProd;
                                     }
 
+<<<<<<< HEAD
                                     function GenerarCompra() {
                                         var direccion = prompt("Ingrese direccion");
 
@@ -143,6 +158,8 @@
                                     function PedirDatos() {
 
                                     }
+=======
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
         </script>
     </body>
 </html>
