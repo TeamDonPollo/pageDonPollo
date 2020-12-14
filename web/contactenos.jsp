@@ -17,7 +17,7 @@
 
 
                 <h2 >Formulario de Contacto</h2>
-                <h2>GAAAAAA </h2>
+              
                 <hr>
             </div>
 
