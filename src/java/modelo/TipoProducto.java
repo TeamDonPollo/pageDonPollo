@@ -29,6 +29,9 @@ public class TipoProducto {
         this.imagenTipoProd = imagenTipoProd;
     }
 
+<<<<<<< HEAD
+=======
  
     
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
 }

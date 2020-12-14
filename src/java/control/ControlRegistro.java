@@ -78,6 +78,12 @@ public class ControlRegistro extends HttpServlet {
         c.setSexo(request.getParameter("sexo"));
         obj.adicionarCliente(c);
 
+<<<<<<< HEAD
+        ses.setAttribute("nombreLogeado", c.getNombre()+" "+c.getApellido());
+        ses.setAttribute("idCliente", obj.CodigoMaximoCliente());
+
+=======
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
         String pag = "/index2.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
 
@@ -101,7 +107,11 @@ public class ControlRegistro extends HttpServlet {
 
         HttpSession ses = request.getSession();
         ses.setAttribute("usuario", null);
+<<<<<<< HEAD
+        ses.setAttribute("idCliente", null);
+=======
 
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
         String pag = "/index2.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
 
@@ -111,7 +121,11 @@ public class ControlRegistro extends HttpServlet {
             throws ServletException, IOException {
 
         String nombre;
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
         HttpSession ses = request.getSession();
         ses.setAttribute("login", "false");
         ses.setAttribute("usuario", null);
@@ -134,6 +148,14 @@ public class ControlRegistro extends HttpServlet {
                 }
             }
 
+<<<<<<< HEAD
+        } else if (c.getPassword().equals((String) request.getParameter("password"))) {
+            nombre = c.getNombre();
+            ses.setAttribute("usuario", nombre);
+            ses.setAttribute("idCliente", c.getCodigo());
+            ses.setAttribute("login", null);
+            ses.setAttribute("nombreLogeado", c.getNombre()+" "+c.getApellido());
+=======
         } else {
             
             if (c.getPassword().equals((String) request.getParameter("password"))) {
@@ -141,6 +163,7 @@ public class ControlRegistro extends HttpServlet {
                 ses.setAttribute("usuario", nombre);
                 ses.setAttribute("login", null);
             }
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
         }
 
         String pag = "/index2.jsp";

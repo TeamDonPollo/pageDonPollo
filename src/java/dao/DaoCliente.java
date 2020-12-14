@@ -51,7 +51,11 @@ public class DaoCliente {
 
         try {
             conn = MySQLConexion.getConexion();
+<<<<<<< HEAD
+            String sql = "select nom, pswd,codc,apellido from cliente where correo=?";
+=======
             String sql = "select nom, pswd from cliente where correo=?";
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, correo);
             ResultSet rs = st.executeQuery();
@@ -60,6 +64,11 @@ public class DaoCliente {
                 c = new Cliente();
                 c.setNombre(rs.getString(1));
                 c.setPassword(rs.getString(2));
+<<<<<<< HEAD
+                c.setCodigo(rs.getString(3));
+                c.setApellido(rs.getString(4));
+=======
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -147,6 +156,37 @@ public class DaoCliente {
         return lis;
     }
 
+<<<<<<< HEAD
+    public String CodigoMaximoCliente() {
+
+        String code = "";
+        Connection conn = null;
+
+        try {
+            conn = MySQLConexion.getConexion();
+            String sql = "select max(codc) from cliente";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                code = rs.getString(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+
+        return code;
+    }
+    
+=======
+>>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
     public void delCliente(String id) {
 
         Connection conn = null;

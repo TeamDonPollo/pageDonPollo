@@ -1,16 +1,23 @@
-<br>
-<footer class="fondo">
+<!DOCTYPE html>
+<html>
+      
+    <%@include file="Head.jsp" %>
+    <body>
+
+        <!-- BARRA DE NAVEGACION-->
+
+        <%@include file="Cabecera.jsp" %>
+          <footer class="fondo">
 
     <div class="deg-fondo"></div>
 
     <div class="ejeZfondo">
         <div class="fondo-conten">
-<<<<<<< HEAD
-=======
             <div class="fondo-title">
 
 
                 <h2 >Formulario de Contacto</h2>
+              
                 <hr>
             </div>
 
@@ -36,22 +43,25 @@
                     </div>
                 </form>
             </div>
-
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+        </div>
             <script type="text/javascript">
                 function calculo() {
                     nom = fr.usuario.value;
                     alert("Gracias " + nom + ", hemos enviado un mensaje a tu correo :)");
-
                 }
             </script> 
 
 
             </footer>
+        <%--<%@include file="Footer.jsp" %>--%>
+         
+        <!-- Script de BOOTSTRAP-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-            <br>
-            <div class="fondo-text" >
-                <h5><span class="icon-sphere"></span> PolleríaDonPollo-2020 </h5>
-            </div>
-            
-            <%@include file="logueo.jsp" %>
+
+
+
+    </body>
+</html>
