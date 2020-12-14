@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@page import="dao.TipoProductoDAO"%>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <%@page import="java.util.*"%>
 <%@page import="modelo.*"%>
 
@@ -120,6 +122,7 @@
             <a  href="contactenos.jsp" style="margin-right: 80px; margin-bottom: auto; margin-top: auto; font-size: 20px; font-weight: 500; color: #c50a25;">Contactenos</a>
         </div>
 =======
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
 
 
 <%
@@ -130,7 +133,10 @@
 %>
 
 
+<<<<<<< HEAD
+=======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
     <div class="row" style="background-color:black">
         <div class="col-3"></div>
         <div class="col-6">
@@ -169,10 +175,14 @@
                 %>
             </ul>
 <<<<<<< HEAD
+            <a href="ControlCarrito?accion=miCarrito" class="btn btn-primary my-2 my-sm-0" title="Mi Carrito"><i class="fas fa-shopping-cart"></i></a>&nbsp;
+=======
+<<<<<<< HEAD
             <a href="ControlCarrito?accion=miCarrito" class="btn btn-danger my-2 my-sm-0" title="Mi Carrito"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i><span style="margin-right: 5px;" class="badge badge-light" id="sizeBadge"><%=sizeProducts%></span><span class="badge badge-light" id="sizeBadge"><%=totalMount%></span></a>&nbsp;
 =======
             <a href="ControlCarrito?accion=miCarrito" class="btn btn-primary my-2 my-sm-0" title="Mi Carrito"><i class="fas fa-shopping-cart"></i></a>&nbsp;
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
             <!-- registrar-->
             <!--<form class="form-inline my-2 my-lg-0">--> <!--No agregar como formulario el modal es el que redirecciona-->
             <%
@@ -181,18 +191,24 @@
                     nombreUsuario = (String) ses.getAttribute("usuario");
             %>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             <a class="btn btn-outline-secondary my-2 my-sm-0" href="ControlRegistro?opc=3" >Salir</a>
             <%
             } else {
             %>
             <button class="btn btn-outline-secondary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
 =======
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
             <a class="btn btn-primary my-2 my-sm-0" href="ControlRegistro?opc=3" >Salir</a>
             <%
             } else {
             %>
             <button class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#modalRegistro">Registrarse</button>
+<<<<<<< HEAD
+=======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
             <%    }
 
                 String login = (String) ses.getAttribute("login");

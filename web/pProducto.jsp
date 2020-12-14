@@ -23,6 +23,8 @@
                         <div class="card" style="width: 22rem;">
                             <img class="card-img-top" src="productos2/<%=p.getCodProducto()%>.jpg" width="50" height="260">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
                              <div class="card-header">
                                 <p style="font-size: 18px; font-weight: 700; margin: auto; text-align: center"><%=p.getProducto()%></p>
                             </div>
@@ -33,6 +35,7 @@
                                 <a href="ControlCarrito?accion=agregar&code=<%=p.getCodProducto() %>&tcan=1" class="btn btn-dark rounded-pill">Comprar <i class="fas fa-shopping-cart ml-1"></i>  </a>
                             </div>
 =======
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
                             <div class="card-header">
                                 <p style="font-size: 14px;"><%=p.getProducto()%></p>
                             </div>
@@ -42,7 +45,10 @@
                                     <a href="ControlCarrito?accion=agregar&code=<%=p.getCodProducto() %>&tcan=1" class="btn btn-primary">Comprar</a>
                                 </li>
                             </ul>
+<<<<<<< HEAD
+=======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
                         </div>
                     </div>
 

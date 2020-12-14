@@ -46,12 +46,15 @@
     </servlet>
     <servlet>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         <servlet-name>ControlLocations</servlet-name>
         <servlet-class>control.ControlLocations</servlet-class>
     </servlet>
     <servlet>
 =======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -98,12 +101,15 @@
     </servlet-mapping>
     <servlet-mapping>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         <servlet-name>ControlLocations</servlet-name>
         <url-pattern>/ControlLocations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
 =======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         <servlet-name>ControlCarrito</servlet-name>
         <url-pattern>/ControlCarrito</url-pattern>
     </servlet-mapping>

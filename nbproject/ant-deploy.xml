@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
 Copyright (c) 2006, 2016 Oracle and/or its affiliates. All rights reserved.
@@ -39,6 +41,7 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 =======
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
 
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
@@ -57,7 +60,10 @@ Contributor(s):
     specific language governing permissions and limitations
     under the License.
 
+<<<<<<< HEAD
+=======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
 -->
 <project default="-deploy-ant" basedir=".">
     <target name="-init" if="deploy.ant.enabled">

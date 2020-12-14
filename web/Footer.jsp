@@ -7,6 +7,9 @@
         <div class="fondo-conten">
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
             <div class="fondo-title">
 
 
@@ -37,7 +40,10 @@
                 </form>
             </div>
 
+<<<<<<< HEAD
+=======
 >>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
+>>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
             <script type="text/javascript">
                 function calculo() {
                     nom = fr.usuario.value;
