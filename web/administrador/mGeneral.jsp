@@ -12,8 +12,8 @@
     <body>
         <%@include file="cabAdmi2.jsp" %>
         <%
-            HttpSession ses=request.getSession();
-            List<Producto> lis=(ArrayList<Producto>)ses.getAttribute("dato");
+            HttpSession sess=request.getSession();
+            List<Producto> lis=(ArrayList<Producto>)sess.getAttribute("dato");
             String codp=(String)request.getAttribute("codProd");
             String tipon=(String)request.getAttribute("tipo");
             %>
