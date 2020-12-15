@@ -51,15 +51,11 @@ public class DaoCliente {
 
         try {
             conn = MySQLConexion.getConexion();
-<<<<<<< HEAD
-            String sql = "select nom, pswd from cliente where correo=?";
-=======
-<<<<<<< HEAD
+
+            //String sql = "select nom, pswd from cliente where correo=?";
             String sql = "select nom, pswd,codc,apellido from cliente where correo=?";
-=======
-            String sql = "select nom, pswd from cliente where correo=?";
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+            //String sql = "select nom, pswd from cliente where correo=?";
+
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, correo);
             ResultSet rs = st.executeQuery();
@@ -68,14 +64,9 @@ public class DaoCliente {
                 c = new Cliente();
                 c.setNombre(rs.getString(1));
                 c.setPassword(rs.getString(2));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
                 c.setCodigo(rs.getString(3));
                 c.setApellido(rs.getString(4));
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -163,9 +154,7 @@ public class DaoCliente {
         return lis;
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     public String CodigoMaximoCliente() {
 
         String code = "";
@@ -194,9 +183,6 @@ public class DaoCliente {
         return code;
     }
     
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
     public void delCliente(String id) {
 
         Connection conn = null;

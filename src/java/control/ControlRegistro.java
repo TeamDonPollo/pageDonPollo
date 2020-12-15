@@ -78,15 +78,11 @@ public class ControlRegistro extends HttpServlet {
         c.setSexo(request.getParameter("sexo"));
         obj.adicionarCliente(c);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         ses.setAttribute("nombreLogeado", c.getNombre()+" "+c.getApellido());
         ses.setAttribute("idCliente", obj.CodigoMaximoCliente());
 
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         String pag = "/index2.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
 
@@ -110,15 +106,9 @@ public class ControlRegistro extends HttpServlet {
 
         HttpSession ses = request.getSession();
         ses.setAttribute("usuario", null);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
         ses.setAttribute("idCliente", null);
-=======
 
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         String pag = "/index2.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
 
@@ -128,62 +118,51 @@ public class ControlRegistro extends HttpServlet {
             throws ServletException, IOException {
 
         String nombre;
-<<<<<<< HEAD
-        
-=======
-<<<<<<< HEAD
+        String pag="";
 
-=======
-        
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         HttpSession ses = request.getSession();
         ses.setAttribute("login", "false");
         ses.setAttribute("usuario", null);
 
         Cliente c = new Cliente();
-        c = obj.buscaCliente(request.getParameter("email"));
+        c = obj.buscaCliente((String)request.getParameter("email"));
 
         if (c == null) {
 
             Administrador a = new Administrador();
-            a = obj.buscaAdministrador(request.getParameter("email"));
+            a = obj.buscaAdministrador((String)request.getParameter("email"));
 
             if (a != null) {
                 if (a.getPassword().equals((String) request.getParameter("password"))) {
                     nombre = a.getNombre();
                     ses.setAttribute("usuario", nombre);
                     ses.setAttribute("login", null);
-                    String pag = "/administrador/cabAdmi2.jsp";
-                    request.getRequestDispatcher(pag).forward(request, response);
+                     pag = "/administrador/cabAdmi2.jsp";
+                    
                 }
             }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        } else if (c.getPassword().equals((String) request.getParameter("password"))) {
-            nombre = c.getNombre();
-            ses.setAttribute("usuario", nombre);
-            ses.setAttribute("idCliente", c.getCodigo());
-            ses.setAttribute("login", null);
-            ses.setAttribute("nombreLogeado", c.getNombre()+" "+c.getApellido());
-=======
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         } else {
             
             if (c.getPassword().equals((String) request.getParameter("password"))) {
                 nombre = c.getNombre();
                 ses.setAttribute("usuario", nombre);
                 ses.setAttribute("login", null);
+                ses.setAttribute("nombreLogeado", c.getNombre()+" "+c.getApellido());
+                ses.setAttribute("idCliente", c.getCodigo());
+                
+                String dato = (String) ses.getAttribute("comprando");
+                pag = "/index2.jsp";
+                if(dato == "Si"){
+                    pag = "/pConfirma1.jsp";
+                }
+                 
+                
             }
-<<<<<<< HEAD
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         }
 
-        String pag = "/index2.jsp";
+        
         request.getRequestDispatcher(pag).forward(request, response);
     }
 

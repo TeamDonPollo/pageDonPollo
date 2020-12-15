@@ -45,20 +45,17 @@
         <servlet-class>control.ControlCarrito</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         <servlet-name>ControlLocations</servlet-name>
         <servlet-class>control.ControlLocations</servlet-class>
     </servlet>
-    <servlet>
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+    
+    <!-- <servlet>
+
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
+    </servlet> -->
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -100,29 +97,25 @@
         <url-pattern>/ControlConsulta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         <servlet-name>ControlLocations</servlet-name>
         <url-pattern>/ControlLocations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         <servlet-name>ControlCarrito</servlet-name>
         <url-pattern>/ControlCarrito</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <!-- <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
+    <!-- <welcome-file-list>  
         <welcome-file>faces/index.xhtml</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>-->
 </web-app>

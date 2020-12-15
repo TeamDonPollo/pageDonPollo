@@ -1,12 +1,8 @@
 package control;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 import dao.DaoPedido;
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
 import dao.DaoProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,22 +13,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 import static jdk.nashorn.internal.objects.NativeMath.round;
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
 import modelo.Compra;
 import modelo2.Producto;
 
 public class ControlCarrito extends HttpServlet {
 
     DaoProducto objProductos = new DaoProducto();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+    
     DaoPedido objPedido = new DaoPedido();
     
     public static double round(double value, int places) {
@@ -51,9 +41,7 @@ public class ControlCarrito extends HttpServlet {
         }
         return String.valueOf(ControlCarrito.round(totalMount, 2));
     }
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -77,9 +65,14 @@ public class ControlCarrito extends HttpServlet {
             ActualizarCarrito(request, response);
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+         if (accion.equals("Confirma1")) {
+            Confirma1(request, response);
+        }
+        
+        if (accion.equals("Confirma2")) {
+            Confirma2(request, response);
+        }
+
         if (accion.equals("generarCompra")) {
             generarCompra(request, response);
         }
@@ -110,30 +103,22 @@ public class ControlCarrito extends HttpServlet {
         }
 
         out.print(resp);
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
     }
 
     protected void Eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Compra> lista;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         Integer sizeProducts = 0;
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         HttpSession ses = request.getSession();
 
         lista = (ArrayList<Compra>) ses.getAttribute("canasta");
 
         int posc = Integer.parseInt(request.getParameter("posc"));
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         if (lista.size() > 0 && posc < lista.size()) {
             lista.remove(posc);
         }
@@ -141,17 +126,7 @@ public class ControlCarrito extends HttpServlet {
         ses.setAttribute("canasta", lista);
         ses.setAttribute("sizeProducts",sizeProducts);
         ses.setAttribute("totalMount",this.getTotalMount(lista));
-=======
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
-        if (lista.size() > 0 && posc<lista.size()) {
-            lista.remove(posc);
-        }
 
-        ses.setAttribute("canasta", lista);
-<<<<<<< HEAD
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         String pag = "/pCompra.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }
@@ -159,39 +134,28 @@ public class ControlCarrito extends HttpServlet {
     protected void Listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Compra> lista;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         Integer sizeProducts = 0;
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         HttpSession ses = request.getSession();
         if (ses.getAttribute("canasta") == null) {
             lista = new ArrayList<>();
         } else {
             lista = (ArrayList<Compra>) ses.getAttribute("canasta");
         }
-<<<<<<< HEAD
-        ses.setAttribute("canasta", lista);
-=======
-<<<<<<< HEAD
+
         sizeProducts = lista.size();
         ses.setAttribute("canasta", lista);
         ses.setAttribute("sizeProducts",sizeProducts);
         ses.setAttribute("totalMount",this.getTotalMount(lista));
-=======
-        ses.setAttribute("canasta", lista);
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         String pag = "/pCompra.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }
 
     protected void ActualizarCarrito(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Compra> lista = null;
-        Compra cp = new Compra();
+        List<Compra> lista;
 
         int can = Integer.parseInt(request.getParameter("tcan"));
         String cod = request.getParameter("code");
@@ -216,13 +180,9 @@ public class ControlCarrito extends HttpServlet {
     protected void AgregarCarrito(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Compra> lista = null;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         Integer sizeProducts = 0;
-=======
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
+
         Compra cp = new Compra();
 
         int can = Integer.parseInt(request.getParameter("tcan"));
@@ -240,15 +200,7 @@ public class ControlCarrito extends HttpServlet {
         } else {
             lista = (ArrayList<Compra>) ses.getAttribute("canasta");
         }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-           
-=======
-
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         int indice = BuscarProducto((ArrayList<Compra>) lista, cod);
         if (indice == -1) {
             lista.add(cp);
@@ -257,22 +209,13 @@ public class ControlCarrito extends HttpServlet {
             c.setCantidad(c.getCantidad() + can);
             lista.set(indice, c);
         }
-<<<<<<< HEAD
 
-        ses.setAttribute("canasta", lista);
-=======
-<<<<<<< HEAD
-        
         sizeProducts = lista.size();
 
         ses.setAttribute("canasta", lista);
         ses.setAttribute("sizeProducts",sizeProducts);
         ses.setAttribute("totalMount",this.getTotalMount(lista));
-=======
 
-        ses.setAttribute("canasta", lista);
->>>>>>> b4b8914a0d99ff7d24ea5cb9c99c8ec6db4b94ae
->>>>>>> 0d5a10e7982d98d432436cbc6600725e727bdd23
         String pag = "/pCompra.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }
@@ -288,6 +231,83 @@ public class ControlCarrito extends HttpServlet {
         return -1;
     }
 
+    public void Confirma1(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException { 
+            HttpSession ses = request.getSession();
+        
+        String tipo = (String) request.getParameter("tipo");
+        ses.setAttribute("Confirma_tipo", tipo);
+        
+        if (tipo.equals("Delivery")){
+            ses.setAttribute("Confirma_direccion", request.getParameter("Direccion"));
+            ses.setAttribute("Confirma_referencia", request.getParameter("Referencia"));
+            ses.setAttribute("Confirma_celular", request.getParameter("Celular"));
+        }
+        else if (tipo.equals("Despacho")){
+            ses.setAttribute("Confirma_nombre", request.getParameter("Nombre"));
+        }
+        
+        String pag = "/pConfirma2.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+    }
+    
+    public void Confirma2(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException { 
+        
+        HttpSession ses = request.getSession();
+        PrintWriter out = response.getWriter();
+        
+        String formaPago= "";
+        String resp = "";
+        String direccion = "-",referencia = "-", celular = "-", receptor="-";
+        
+        String tipoPago = (String) request.getParameter("tipo_pago");
+        List<Compra> lista = (ArrayList<Compra>) ses.getAttribute("canasta");
+        String codeCliente = (String) ses.getAttribute("idCliente");
+        String servicio = (String) ses.getAttribute("Confirma_tipo");
+
+        
+        if (tipoPago.equals("Contraentrega")){
+            
+            String eleccion = (String) request.getParameter("ContraentregaPago");
+            
+            if (eleccion.equals("Efectivo")){ formaPago = "FP002";}
+            else{formaPago = "FP003";}
+            
+        }
+        else if (tipoPago.equals("Online")){
+            formaPago =  "FP004";
+        }
+        
+ 
+        if (servicio.equals("Delivery")){
+        
+            direccion = (String) ses.getAttribute("Confirma_direccion");
+            referencia = (String) ses.getAttribute("Confirma_referencia");
+            celular = (String) ses.getAttribute("Confirma_celular");
+            receptor = (String) ses.getAttribute("usuario");
+        }
+        else if (servicio.equals("Despacho")){
+           
+            receptor = (String) ses.getAttribute("Confirma_nombre");
+  
+        }
+        
+        resp = objPedido.GrabarPedido2(lista,codeCliente,"1",formaPago,servicio, 
+                                        direccion, referencia,celular,receptor);
+        
+        out.print(resp);
+        
+        ses.setAttribute("canasta", null);
+        ses.setAttribute("sizeProducts", null);
+        ses.setAttribute("totalMount", null);
+        ses.setAttribute("pedido", resp);
+        
+        String pag = "/index2.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+    }
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
