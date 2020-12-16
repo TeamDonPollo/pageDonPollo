@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="cabecera.jsp" %>
+        
     </head>
     <%@page import="modelo.TipoProducto"%>
     <%@page import="java.util.List"%>
-    <%@page import="dao.TipoProductoDAO"%>   
+    <%@page import="dao.*"%>   
     <body>
 
         <%

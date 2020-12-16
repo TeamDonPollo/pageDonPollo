@@ -1,6 +1,6 @@
 <%-- 
-    Document   : mQuejas
-    Created on : 30/10/2020, 09:27:02 PM
+    Document   : histRep
+    Created on : 15/12/2020, 07:57:59 PM
     Author     : chris
 --%>
 
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>DON POLLO</title>
     </head>
     <body>
-        <h1>QUEJAS XD</h1>
+       <%@include file="cabRep.jsp" %>
+       <h1>HISTORIAAAAAL</h1>
     </body>
 </html>

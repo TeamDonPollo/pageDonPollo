@@ -1,26 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control;
 
-import dao.DaoCliente;
-import java.io.IOException;
-import java.io.PrintWriter;
+import dao.*;
+import java.io.*;
 import static java.lang.System.out;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import modelo2.Administrador;
-import modelo2.Cliente;
+import javax.servlet.http.*;
+import modelo2.*; import modelo.*;
 
 public class ControlRegistro extends HttpServlet {
 
     DaoCliente obj = new DaoCliente();
-
+    DaoRepartidor obj2 = new DaoRepartidor();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -130,7 +121,7 @@ public class ControlRegistro extends HttpServlet {
         if (c == null) {
 
             Administrador a = new Administrador();
-            a = obj.buscaAdministrador((String)request.getParameter("email"));
+            a = obj2.buscaAdministrador((String)request.getParameter("email"));
 
             if (a != null) {
                 if (a.getPassword().equals((String) request.getParameter("password"))) {
@@ -141,6 +132,18 @@ public class ControlRegistro extends HttpServlet {
                     
                 }
             }
+            
+            Repartidor r=new Repartidor();
+            r=obj.buscaRepartidor((String)request.getParameter("email"));
+             if (r != null) {
+                if (r.getPswd().equals((String) request.getParameter("password"))) {
+                    nombre = r.getNom();
+                    ses.setAttribute("usuario", nombre);
+                    ses.setAttribute("login", null);
+                     pag = "/repartidor/cabRep.jsp";
+                }
+            }
+            
 
         } else {
             

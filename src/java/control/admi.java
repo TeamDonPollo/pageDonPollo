@@ -26,15 +26,21 @@ public class admi extends HttpServlet {
         
         
         String opc = request.getParameter("opc");
-        
+         if (opc.equals("1")) {
+           repPendiente(request, response);
+        }
         if (opc.equals("2")) {
             eClientes(request, response);
         }
         if (opc.equals("3")) {
             eConsul(request, response);
         }
+               
         if (opc.equals("4")) {
             grafico(request, response);
+        }
+        if (opc.equals("5")) {
+            repHistory(request, response);
         }
         if (opc.equals("6")) {
             lisProd(request, response);
@@ -57,6 +63,24 @@ public class admi extends HttpServlet {
             throws ServletException, IOException {
 
         String pag = "/administrador/listaConsultas.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
+    
+        protected void repPendiente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String pag = "/repartidor/pendRep.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
+        
+          protected void repHistory(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String pag = "/repartidor/histRep.jsp";
 
         request.getRequestDispatcher(pag).forward(request, response);
 

@@ -7,6 +7,10 @@ public class Pedido {
     private String fecha;
     private String distrito;
     private double total;
+    private String formp;
+    private String ref;
+    private String cel;
+    private String recp;
 
     public String getIdPedido() {
         return idPedido;
@@ -46,6 +50,38 @@ public class Pedido {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public String getFormp() {
+        return formp;
+    }
+
+    public void setFormp(String formp) {
+        this.formp = formp;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public String getCel() {
+        return cel;
+    }
+
+    public void setCel(String cel) {
+        this.cel = cel;
+    }
+
+    public String getRecp() {
+        return recp;
+    }
+
+    public void setRecp(String recp) {
+        this.recp = recp;
     }
     
     

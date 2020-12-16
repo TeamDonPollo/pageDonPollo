@@ -1,13 +1,8 @@
 package dao;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import modelo2.Administrador;
-import modelo2.Cliente;
+import java.sql.*;
+import java.util.*;
+import modelo2.*; import modelo.*;
 import util.MySQLConexion;
 
 public class DaoCliente {
@@ -83,38 +78,7 @@ public class DaoCliente {
         return c;
     }
 
-    public Administrador buscaAdministrador(String correo) {
-
-        Administrador a = null;
-        Connection conn = null;
-
-        try {
-            conn = MySQLConexion.getConexion();
-            String sql = "select nomad, pswd from administrador where correo=?";
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, correo);
-            ResultSet rs = st.executeQuery();
-            //llenar el arraylist con la clase entidad
-            while (rs.next()) {
-                a = new Administrador();
-                a.setNombre(rs.getString(1));
-                a.setPassword(rs.getString(2));
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception e2) {
-            }
-        }
-
-        return a;
-    }
-
+  
     public List<Cliente> listaClientes() {
         List<Cliente> lis = new ArrayList<>();
         Connection conn = null;
@@ -204,5 +168,35 @@ public class DaoCliente {
             } catch (Exception e2) {
             }
         }
+    }
+    
+      public Repartidor buscaRepartidor(String correo) {
+        Repartidor r = null;
+        Connection conn = null;
+        try {
+            conn = MySQLConexion.getConexion();
+            String sql = "select nomrep, pswd from repartidor where correo=?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, correo);
+            ResultSet rs = st.executeQuery();
+            //llenar el arraylist con la clase entidad
+            while (rs.next()) {
+                r = new Repartidor();
+                r.setNom(rs.getString(1));
+                r.setPswd(rs.getString(2));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+
+        return r;
     }
 }

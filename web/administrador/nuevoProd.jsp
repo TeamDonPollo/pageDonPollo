@@ -14,7 +14,7 @@
             String nomTP=tp.getNomTipo();
              
             %>
-          <div style="background-color:black">
+        <div style="background-color:black">
             <center>   <img src="image/Logo.png" width="260px" height="210px" id="borde"></center>
         </div>
     <center><br><h2><img src="image/<%=tp.getImagenTipoProd()%>"> Nuevo producto para <%=nomTP%> <img src="image/<%=tp.getImagenTipoProd()%>"></h2></center><br><br>
@@ -37,5 +37,5 @@
         <center><img src="image/btnGuardar.png">
             <input type="submit" class="btn btn-info" name="accion" value="Guardar"></center>
         </div></div></form>
-    </body>S
+    </body>
 </html>
