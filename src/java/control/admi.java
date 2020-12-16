@@ -20,6 +20,7 @@ public class admi extends HttpServlet {
 
     TipoProductoDAO obj = new TipoProductoDAO();
     DaoProducto ng2 = new DaoProducto();
+    DaoPedido daop=new DaoPedido();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,6 +45,9 @@ public class admi extends HttpServlet {
         }
         if (opc.equals("6")) {
             lisProd(request, response);
+        }
+        if (opc.equals("7")) {
+            histCompras(request, response);
         }
     }
 
@@ -99,6 +103,18 @@ public class admi extends HttpServlet {
             throws ServletException, IOException {
 
         String pag = "/administrador/pgGrafico.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
+      
+      protected void histCompras(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String code = request.getParameter("code");
+        request.setAttribute("hPedidos", daop.historialP(code));
+        
+        String pag = "pHistorialC.jsp";
 
         request.getRequestDispatcher(pag).forward(request, response);
 

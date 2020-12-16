@@ -1,13 +1,10 @@
 package control;
 
-import dao.DaoCliente;
+import dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import modelo2.Cliente;
 
 public class ControlCliente extends HttpServlet {
@@ -22,6 +19,9 @@ public class ControlCliente extends HttpServlet {
         }
         if (opc.equals("2")) {
             delClientes(request, response);
+        }
+        if (opc.equals("3")) {
+            delPedido(request, response);
         }
         }
 
@@ -62,6 +62,14 @@ public class ControlCliente extends HttpServlet {
         
     }
     
+     private void delPedido(HttpServletRequest request, HttpServletResponse response) 
+         throws ServletException, IOException {
+        DaoPedido obj = new DaoPedido();
+        String cod = request.getParameter("cod");
+        obj.delPedido(cod);
+        String ruta = "pHistorialC.jsp";
+        request.getRequestDispatcher(ruta).forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

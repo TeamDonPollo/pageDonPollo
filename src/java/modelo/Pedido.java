@@ -11,6 +11,7 @@ public class Pedido {
     private String ref;
     private String cel;
     private String recp;
+    private String estado;
 
     public String getIdPedido() {
         return idPedido;
@@ -82,6 +83,14 @@ public class Pedido {
 
     public void setRecp(String recp) {
         this.recp = recp;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
     

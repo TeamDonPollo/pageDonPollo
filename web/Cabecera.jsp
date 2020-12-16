@@ -158,6 +158,17 @@
                 <%
                     }
                 %>
+                
+                 <%   if (ses.getAttribute("usuario") != null) {
+                      HttpSession sesion=request.getSession();
+                      String  codCliente = sesion.getAttribute("idCliente").toString();
+             %>    
+             <li class="nav-item active">
+                 <a href="admi?opc=7&code=<%=codCliente%>" class="nav-link">
+                     <img src="fotos/history.png"> Compras</a>
+                </li>   
+                <%}%> 
+                
             </ul>
 
             <a href="ControlCarrito?accion=miCarrito" class="btn btn-danger my-2 my-sm-0" title="Mi Carrito"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i><span style="margin-right: 5px;" class="badge badge-light" id="sizeBadge"><%=sizeProducts%></span><span class="badge badge-light" id="sizeBadge"><%=totalMount%></span></a>&nbsp;
