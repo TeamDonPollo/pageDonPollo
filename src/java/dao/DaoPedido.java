@@ -1,14 +1,9 @@
 package dao;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import modelo.Compra;
-import modelo.Pedido;
+import java.sql.*;
+import java.util.*;
+import modelo.*;
+import modelo2.Cliente;
 import util.MySQLConexion;
 
 public class DaoPedido {
@@ -164,6 +159,38 @@ public class DaoPedido {
             } catch (Exception e2) {
             }
         }
+    }
+        
+        public List<DetallePedido> lisDetPedido(String cad) {
+        List<DetallePedido> lis = new ArrayList<>();
+        Connection conn = null;
+        try {
+            conn = MySQLConexion.getConexion();
+            String sql = "select dp.idpt, p.nom, dp.cantidad, dp.precio from detalle_pedido as dp inner join producto as p on dp.idp=p.idpt where dp.idpt=?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, cad);
+            ResultSet rs = st.executeQuery();
+            //llenar el arraylist con la clase entidad
+            while (rs.next()) {
+                DetallePedido dp = new DetallePedido();
+                dp.setCodigo(rs.getString(1));
+                dp.setIdproduc(rs.getString(2));
+                dp.setCantidad(rs.getInt(3));
+                dp.setPrecio(rs.getDouble(4));
+                lis.add(dp);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+
+        return lis;
     }
                                         
 }
