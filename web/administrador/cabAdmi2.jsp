@@ -14,7 +14,7 @@
             String nombreUsuario = "";
 
         %>
-
+<%@include file="cabecera.jsp" %>
         <div class="row" style="background-color:black">
             <div class="col-3"></div>
             <div class="col-6">

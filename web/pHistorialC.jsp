@@ -47,8 +47,8 @@
          <td style="text-align: center;"><img src="fotos/cancel.png"></td>
              <% }%>
                                      
-         <td><img src="fotos/mostrar.png" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="detPedido(<%=p.getIdPedido()%>)"> </td>
-                       <td><a href="ControlCliente?opc=3&cod=<%=p.getIdPedido()%>"><img src="fotos/eliminar.png"></a></td>
+         <td style="text-align: center;"><img src="fotos/mostrar.png" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="detPedido(<%=p.getIdPedido()%>)"> </td>
+                       <td style="text-align: center;"><a href="ControlCliente?opc=3&cod=<%=p.getIdPedido()%>"><img src="fotos/eliminar.png"></a></td>
                     <%
                     }
                     }
