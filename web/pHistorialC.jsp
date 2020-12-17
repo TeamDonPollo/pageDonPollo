@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="modelo.Pedido, dao.DaoPedido" %>
-<script src="js/app.js" type="text/javascript"></script>
+<script src="../src/java/dao/app.js" type="text/javascript"></script>
 
 <html>
      <%@include file="Head.jsp" %>
@@ -15,16 +15,17 @@
             <tr>
                   <th>IDPedido</th>
                   <th>Monto Total</th>
-                  <th>Medio de Pago</th>
+                  <th>Medio de Pagosss</th>
                   <th>Fecha</th>
                   <th>Estado</th>
                   <th>Detalle</th>
                   <th>Eliminar</th>
              </tr> 
               <%
-                  List<DetallePedido> lisDP=null;
+                  //List<DetallePedido> lisDP=null;
+                  DaoPedido dap2=new DaoPedido();
                   List<Pedido> lisp=null;
-                  if(request.getAttribute("hPedidos")!=null){
+                 if(request.getAttribute("hPedidos")!=null){
                     lisp=(ArrayList<Pedido>)request.getAttribute("hPedidos");  
                   }
                   if(lisp==null || lisp.size()==0){ %>
@@ -36,7 +37,7 @@
                       for (Pedido p:lisp) {
                             out.print("<tr><td>"+p.getIdPedido()+"<td>"+p.getTotal()+"<td>"+p.getFormp()+"<td>"+p.getFecha()+"<td>"+
                                         p.getEstado()+"<td>"); %>
-                       <img src="fotos/mostrar.png" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="<%=lisDP=(ArrayList<DetallePedido>)dap.lisDetPedido(p.getIdPedido())%>">  
+                                        <img src="fotos/mostrar.png" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="detPedido(<%=p.getIdPedido()%>)"> </a>
                        <td><a href="ControlCliente?opc=3&cod=<%=p.getIdPedido()%>"><img src="fotos/eliminar.png"></a></td>
                     <%
                     }
@@ -63,7 +64,7 @@
                   <th>Precio Total</th>
             </tr> 
                 <%
-                    int sis=lisDP.size(); int cont=0;double tot=0;
+                   /*// int sis=lisDP.size(); int cont=0;double tot=0;
                     for (DetallePedido xp:lisDP) {
                         tot=xp.getPrecio()*xp.getCantidad();
                         if(cont<1){
@@ -71,22 +72,32 @@
                         }else{
                        out.print("<tr>");     
                         }
-                     out.print("<td>"+xp.getNomprod()+"<td>"); %>
-               <img src="productos2/<%=xp.getIdproduc()%>.jpg" width="50" height="50"></td>
+                     out.print("<td>"+xp.getNomprod()+"<td>");*/ %>
+            <!--   <img src="productos2/<=//xp.getIdproduc()%>.jpg" width="50" height="50"></td>-->
                             
                     <%
-                     out.print("<td>"+xp.getCantidad()+"<td>"+tot+"");
-                                        cont++; } %>
+                    /* out.print("<td>"+xp.getCantidad()+"<td>"+tot+"");
+                                        cont++; }*/ %>
       
       </table>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         
       </div>
     </div>
   </div>
 </div>
-          
+          <script>
+
+function actualizarModal(cod){
+    var code=cod;
+   // var costo=<=dap2.lisDetPedido(cod)%>;
+
+
+
+}
+
+</script>
          
     </body>
 </html>

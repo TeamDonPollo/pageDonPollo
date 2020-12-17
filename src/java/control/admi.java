@@ -110,14 +110,10 @@ public class admi extends HttpServlet {
       
       protected void histCompras(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String code = request.getParameter("code");
         request.setAttribute("hPedidos", daop.historialP(code));
-        
         String pag = "pHistorialC.jsp";
-
         request.getRequestDispatcher(pag).forward(request, response);
-
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

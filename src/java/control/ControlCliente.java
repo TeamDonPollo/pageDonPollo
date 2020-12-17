@@ -23,6 +23,9 @@ public class ControlCliente extends HttpServlet {
         if (opc.equals("3")) {
             delPedido(request, response);
         }
+        if (opc.equals("4")) {
+            detallePedido(request, response);
+        }
         }
 
     private void listaClientes(HttpServletRequest request, HttpServletResponse response) 
@@ -70,6 +73,15 @@ public class ControlCliente extends HttpServlet {
         String ruta = "pHistorialC.jsp";
         request.getRequestDispatcher(ruta).forward(request, response);
     }
+     
+      private void detallePedido(HttpServletRequest request, HttpServletResponse response) 
+         throws ServletException, IOException {
+        DaoPedido obj = new DaoPedido();
+        String cod = request.getParameter("codp");
+        request.setAttribute("lisDPP", obj.lisDetPedido(cod));
+        String ruta = "pHistorialC.jsp";
+        request.getRequestDispatcher(ruta).forward(request, response);
+     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

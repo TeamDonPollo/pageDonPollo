@@ -1,4 +1,4 @@
-import DaoPedido from "../"
+import DaoPedido from "./";
 
 selPedido = function(idPedido){
     
