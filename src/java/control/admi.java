@@ -49,6 +49,9 @@ public class admi extends HttpServlet {
         if (opc.equals("7")) {
             histCompras(request, response);
         }
+         if (opc.equals("8")) {
+            actPedido(request, response);
+        }
     }
 
     protected void lisProd(HttpServletRequest request, HttpServletResponse response)
@@ -103,6 +106,17 @@ public class admi extends HttpServlet {
             throws ServletException, IOException {
 
         String pag = "/administrador/pgGrafico.jsp";
+
+        request.getRequestDispatcher(pag).forward(request, response);
+
+    }
+       protected void actPedido(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        DaoRepartidor daor=new DaoRepartidor();
+        String id = request.getParameter("idp");
+        String estado = request.getParameter("est");
+        daor.actualizarEstado(estado, id);
+        String pag = "/repartidor/pendRep.jsp";
 
         request.getRequestDispatcher(pag).forward(request, response);
 

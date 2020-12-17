@@ -175,7 +175,7 @@ public class DaoCliente {
         Connection conn = null;
         try {
             conn = MySQLConexion.getConexion();
-            String sql = "select nomrep, pswd from repartidor where correo=?";
+            String sql = "select nomrep, pswd, codrep from repartidor where correo=?";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, correo);
             ResultSet rs = st.executeQuery();
@@ -184,6 +184,7 @@ public class DaoCliente {
                 r = new Repartidor();
                 r.setNom(rs.getString(1));
                 r.setPswd(rs.getString(2));
+                r.setCodrep(rs.getString(3));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

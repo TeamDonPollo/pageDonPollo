@@ -8,8 +8,9 @@
 
     <body>
          <%@include file="Cabecera.jsp" %>
-         <center> <h1>Historial de Compras</h1></center>
-    <div class="container">
+         <center> <h1>Historial de Compras</h1></center><br><br><h5><img src="fotos/pendientec.png">Pendiente
+             <img src="fotos/check.png">Efectuado<img src="fotos/cancel.png">Cancelado</h5>
+         <br><div class="container">
        <div class="abs-center">
             <table action="" class="table table-bordered table-striped table-hover">
             <tr>
@@ -35,9 +36,18 @@
                     }  else{
                         DaoPedido dap=new DaoPedido(); 
                       for (Pedido p:lisp) {
-                            out.print("<tr><td>"+p.getIdPedido()+"<td>"+p.getTotal()+"<td>"+p.getFormp()+"<td>"+p.getFecha()+"<td>"+
-                                        p.getEstado()+"<td>"); %>
-                                        <img src="fotos/mostrar.png" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="detPedido(<%=p.getIdPedido()%>)"> </a>
+                            out.print("<tr><td>"+p.getIdPedido()+"<td>"+p.getTotal()+"<td>"+p.getFormp()+"<td>"+p.getFecha());
+        if(p.getEstado().equals("Pendiente")){%>
+         <td style="text-align: center;"><img src="fotos/pendientec.png"></td>
+         <% } %>
+         <%if(p.getEstado().equals("Efectuado")){%>
+         <td style="text-align: center;"><img src="fotos/check.png"></td>
+             <% }%>
+         <%if(p.getEstado().equals("Cancelado")){%>
+         <td style="text-align: center;"><img src="fotos/cancel.png"></td>
+             <% }%>
+                                     
+         <td><img src="fotos/mostrar.png" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="detPedido(<%=p.getIdPedido()%>)"> </td>
                        <td><a href="ControlCliente?opc=3&cod=<%=p.getIdPedido()%>"><img src="fotos/eliminar.png"></a></td>
                     <%
                     }

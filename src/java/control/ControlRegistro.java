@@ -140,7 +140,8 @@ public class ControlRegistro extends HttpServlet {
                     nombre = r.getNom();
                     ses.setAttribute("usuario", nombre);
                     ses.setAttribute("login", null);
-                     pag = "/repartidor/cabRep.jsp";
+                    ses.setAttribute("idRep", r.getCodrep());
+                     pag = "/repartidor/pendRep.jsp";
                 }
             }
             
