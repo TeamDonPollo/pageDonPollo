@@ -166,7 +166,7 @@ public class DaoPedido {
         Connection conn = null;
         try {
             conn = MySQLConexion.getConexion();
-            String sql = "select dp.idpt, p.nom, dp.cantidad, dp.precio from detalle_pedido as dp inner join producto as p on dp.idp=p.idpt where dp.idpt=?";
+            String sql = "select dp.idpt,p.idpt, p.nom, dp.cantidad, dp.precio from detalle_pedido as dp inner join producto as p on dp.idp=p.idpt where dp.idpt=?";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, cad);
             ResultSet rs = st.executeQuery();
@@ -175,8 +175,9 @@ public class DaoPedido {
                 DetallePedido dp = new DetallePedido();
                 dp.setCodigo(rs.getString(1));
                 dp.setIdproduc(rs.getString(2));
-                dp.setCantidad(rs.getInt(3));
-                dp.setPrecio(rs.getDouble(4));
+                dp.setNomprod(rs.getString(3));
+                dp.setCantidad(rs.getInt(4));
+                dp.setPrecio(rs.getDouble(5));
                 lis.add(dp);
             }
         } catch (Exception ex) {

@@ -49,7 +49,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">PedidoXD</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Detalle Pedido</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -60,15 +60,23 @@
                   <th>Producto</th>
                   <th>Imagen</th>
                   <th>Cantidad</th>
-                  <th>Precio</th>
+                  <th>Precio Total</th>
             </tr> 
-                <%for (DetallePedido xp:lisDP) {
-                    out.print("<tr><td>"+xp.getCodigo()+"<td>"+xp.getIdproduc()+"<td>"); %>
-               <img src="productos2/<%=xp.getCodigo()%>.jpg" width="50" height="50"></td>
+                <%
+                    int sis=lisDP.size(); int cont=0;double tot=0;
+                    for (DetallePedido xp:lisDP) {
+                        tot=xp.getPrecio()*xp.getCantidad();
+                        if(cont<1){
+                          out.print("<tr><td rowspan='"+sis+"'>"+xp.getCodigo());  
+                        }else{
+                       out.print("<tr>");     
+                        }
+                     out.print("<td>"+xp.getNomprod()+"<td>"); %>
+               <img src="productos2/<%=xp.getIdproduc()%>.jpg" width="50" height="50"></td>
                             
                     <%
-                     out.print("<td>"+xp.getCantidad()+"<td>"+xp.getPrecio()+"");
-                                        } %>
+                     out.print("<td>"+xp.getCantidad()+"<td>"+tot+"");
+                                        cont++; } %>
       
       </table>
         <div class="modal-footer">

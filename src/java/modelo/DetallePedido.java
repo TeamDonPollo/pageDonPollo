@@ -4,6 +4,7 @@ package modelo;
 public class DetallePedido {
     private String codigo;
     private String idproduc;
+    private String nomprod;
     private int cantidad;
     private double precio;
 
@@ -37,6 +38,14 @@ public class DetallePedido {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getNomprod() {
+        return nomprod;
+    }
+
+    public void setNomprod(String nomprod) {
+        this.nomprod = nomprod;
     }
     
 }
