@@ -58,13 +58,13 @@ public class prueba1 extends HttpServlet {
     for(ClaseProducto x:obj.busProd(an)){
         ds.setValue(x.getPrecio(), "ventas", x.getProdu());
     }
-    JFreeChart fg=ChartFactory.createBarChart3D("Productos más vendidos según tipo","producto","cantidad", ds,
+    JFreeChart fg=ChartFactory.createBarChart3D("Productos más vendidos según tipo","producto","monto", ds,
     PlotOrientation.VERTICAL,true,true,true);
     return fg;
     }
     
     JFreeChart circulo(String an){
-    DefaultPieDataset ds=new DefaultPieDataset();//llenar la data a graficar
+    DefaultPieDataset ds=new DefaultPieDataset();
     for(ClaseProducto x:obj.busProd(an)){
         ds.setValue(x.getProdu(), x.getPrecio());
     }

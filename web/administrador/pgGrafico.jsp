@@ -26,7 +26,7 @@
             <input type="radio" name="op" value="2" onclick="ver()">Circular
         </form>
             <br>
-        <iframe name="ventana" height="400" width="500"></iframe>
+        <iframe name="ventana" height="420" width="520"></iframe>
                  </td>
                 
             <td> 
@@ -45,7 +45,7 @@
             <input type="radio" name="op2" value="2" onclick="ver2()">Circular
         </form>
             <br>
-        <iframe name="ventana2" height="400" width="500"></iframe>
+        <iframe name="ventana2" height="420" width="520"></iframe>
              </td>
             </tr>
             

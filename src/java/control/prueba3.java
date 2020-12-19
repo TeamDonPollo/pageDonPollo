@@ -56,9 +56,9 @@ public class prueba3 extends HttpServlet {
      JFreeChart barra( String an){
     DefaultCategoryDataset ds=new DefaultCategoryDataset();
     for(PedidoCliente x:obj.busDia(an)){
-        ds.setValue(x.getTotal(), "ventas", x.getCliente());
+        ds.setValue(x.getTotal(), "compras", x.getCliente());
     }
-    JFreeChart fg=ChartFactory.createBarChart3D("Clientes con mayor compra","producto","cantidad", ds,
+    JFreeChart fg=ChartFactory.createBarChart3D("Clientes con mayor compra","cliente","monto", ds,
     PlotOrientation.VERTICAL,true,true,true);
     return fg;
     }
