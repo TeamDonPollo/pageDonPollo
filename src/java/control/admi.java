@@ -15,6 +15,7 @@ import java.io.InputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
 import modelo.Pedido;
+import modelo.DetallePedido;
 
 @MultipartConfig
 public class admi extends HttpServlet {
@@ -131,6 +132,17 @@ public class admi extends HttpServlet {
         
         request.setAttribute("hPedidos", historial);
         
+        List<DetallePedido> detalle = new ArrayList<>();
+
+        for (Pedido p:historial) {
+
+            for (DetallePedido dp:daop.lisDetPedido(p.getIdPedido())) {
+               detalle.add(dp);
+            }
+ 
+        }
+        
+        request.setAttribute("hDetalles", detalle);
         
         String pag = "pHistorialC.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
