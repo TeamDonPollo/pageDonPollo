@@ -54,6 +54,14 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet> -->
+    <servlet>
+        <servlet-name>prueba3</servlet-name>
+        <servlet-class>control.prueba3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>prueba1</servlet-name>
+        <servlet-class>control.prueba1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controla1</servlet-name>
         <url-pattern>/controla1</url-pattern>
@@ -106,6 +114,14 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>prueba3</servlet-name>
+        <url-pattern>/prueba3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>prueba1</servlet-name>
+        <url-pattern>/prueba1</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

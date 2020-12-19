@@ -13,7 +13,7 @@
             <br>
             <table>
             <tr><td> 
-         <form action="prueba" target="ventana" name="fr">
+         <form action="prueba1" target="ventana" name="fr">
          Escoja un tipo de producto:<select name="tan">
             <option value="T001">Promociones
             <option value="T002">PollosBrasa
@@ -30,7 +30,7 @@
                  </td>
                 
             <td> 
-            <form action="prueba22" target="ventana2" name="fr2">
+            <form action="prueba3" target="ventana2" name="fr2">
           Elija un día de la semana:<select name="tan2">
              <option value="Monday">Lunes
             <option value="Tuesday">Martes

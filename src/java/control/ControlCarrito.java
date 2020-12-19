@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static jdk.nashorn.internal.objects.NativeMath.round;
-
 import modelo.Compra;
 import modelo2.Producto;
 
@@ -110,7 +108,7 @@ public class ControlCarrito extends HttpServlet {
             throws ServletException, IOException {
         List<Compra> lista;
 
-        Integer sizeProducts = 0;
+        Integer sizeProducts;
 
         HttpSession ses = request.getSession();
 
@@ -135,7 +133,7 @@ public class ControlCarrito extends HttpServlet {
             throws ServletException, IOException {
         List<Compra> lista;
 
-        Integer sizeProducts = 0;
+        Integer sizeProducts;
 
         HttpSession ses = request.getSession();
         if (ses.getAttribute("canasta") == null) {
@@ -179,9 +177,9 @@ public class ControlCarrito extends HttpServlet {
 
     protected void AgregarCarrito(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Compra> lista = null;
+        List<Compra> lista;
 
-        Integer sizeProducts = 0;
+        Integer sizeProducts;
 
         Compra cp = new Compra();
 
@@ -258,7 +256,7 @@ public class ControlCarrito extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String formaPago= "";
-        String resp = "";
+        String resp;
         String direccion = "-",referencia = "-", celular = "-", receptor="-";
         
         String tipoPago = (String) request.getParameter("tipo_pago");

@@ -14,6 +14,7 @@ import dao.*;
 import java.io.InputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
+import modelo.Pedido;
 
 @MultipartConfig
 public class admi extends HttpServlet {
@@ -125,7 +126,12 @@ public class admi extends HttpServlet {
       protected void histCompras(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String code = request.getParameter("code");
-        request.setAttribute("hPedidos", daop.historialP(code));
+        
+        List<Pedido> historial = daop.historialP(code);
+        
+        request.setAttribute("hPedidos", historial);
+        
+        
         String pag = "pHistorialC.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }
